@@ -147,8 +147,8 @@ public class ApiApplication implements SmartInitializingSingleton {
     private static UserSignupRequest getSuperAdminSignupRequest(Role savedSuperAdminRole) {
         UserSignupRequest signupRequest = new UserSignupRequest();
         signupRequest.setRole(savedSuperAdminRole);
-        signupRequest.setEmail("superadmin@demo.com");
-        signupRequest.setPassword("password123");
+        signupRequest.setEmail("superadmin@test.com");
+        signupRequest.setPassword("pls_change_me");
         signupRequest.setFirstName("Super");
         signupRequest.setLastName("Admin");
         signupRequest.setPhone("");

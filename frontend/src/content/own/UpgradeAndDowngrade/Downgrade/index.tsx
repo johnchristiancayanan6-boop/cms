@@ -52,11 +52,14 @@ function Downgrade() {
 
   useEffect(() => {
     setTitle(t('downgrade'));
-    if (user.ownsCompany) dispatch(getUsersMini());
+    if (user?.ownsCompany) {
+      dispatch(getUsersMini()).catch(() => undefined);
+    }
   }, []);
 
   useEffect(() => {
-    setMinUsers(usersMini.length - company.subscription.usersCount);
+    const allowedUsers = company?.subscription?.usersCount ?? usersMini.length;
+    setMinUsers(Math.max(0, usersMini.length - allowedUsers));
   }, [usersMini]);
 
   const onDowngrade = () => {
@@ -83,7 +86,7 @@ function Downgrade() {
     newSelectedUsers[id] = value;
     setSelectedUsers(newSelectedUsers);
   };
-  if (company.subscription.downgradeNeeded)
+  if (company?.subscription?.downgradeNeeded)
     return (
       <>
         <Helmet>
@@ -115,7 +118,7 @@ function Downgrade() {
                 )}
               </Typography>
             </Box>
-            {user.ownsCompany && (
+            {user?.ownsCompany && (
               <Container maxWidth="sm">
                 <Card
                   sx={{
@@ -135,7 +138,7 @@ function Downgrade() {
                     </Typography>
                     <FormGroup>
                       {usersMini
-                        .filter((userMini) => userMini.id !== user.id)
+                        .filter((userMini) => userMini.id !== user?.id)
                         .map((user) => (
                           <FormControlLabel
                             key={user.id}

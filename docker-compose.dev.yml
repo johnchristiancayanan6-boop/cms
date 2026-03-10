@@ -4,7 +4,7 @@ services:
     image: postgres:16-alpine
     container_name: eastwest_db
     environment:
-      POSTGRES_DB: atlas
+      POSTGRES_DB: eastwest
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-mypassword}
     ports:
@@ -24,12 +24,12 @@ services:
       - ./logo:/app/static/images
       - ./api/src:/app/src
     environment:
-      DB_URL: postgres/atlas
+      DB_URL: postgres/eastwest
       DB_USER: ${POSTGRES_USER}
       DB_PWD: ${POSTGRES_PASSWORD:-mypassword}
       PUBLIC_API_URL: ${PUBLIC_API_URL:-http://localhost:8080}
-      FASTSPRING_PWD: ${FASTSPRING_PWD}
-      FASTSPRING_USER: ${FASTSPRING_USER}
+      FASTSPRING_PWD: ${FASTSPRING_PWD:-}
+      FASTSPRING_USER: ${FASTSPRING_USER:-}
       PUBLIC_FRONT_URL: ${PUBLIC_FRONT_URL}
       GCP_BUCKET_NAME: ${GCP_BUCKET_NAME}
       GCP_JSON: ${GCP_JSON}
@@ -39,10 +39,10 @@ services:
       SMTP_USER: ${SMTP_USER}
       SMTP_HOST: ${SMTP_HOST}
       SMTP_PORT: ${SMTP_PORT}
-      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-dev}
       JWT_SECRET_KEY: ${JWT_SECRET_KEY}
       MINIO_ENDPOINT: http://minio:9000
-      MINIO_BUCKET: atlas-bucket
+      MINIO_BUCKET: eastwest-bucket
       MINIO_ACCESS_KEY: ${MINIO_USER}
       MINIO_SECRET_KEY: ${MINIO_PASSWORD}
       STORAGE_TYPE: ${STORAGE_TYPE:-minio}
@@ -93,7 +93,7 @@ services:
       REACT_APP_CUSTOM_COLORS: ${CUSTOM_COLORS}
       REACT_APP_BRAND_CONFIG: ${BRAND_CONFIG}
       REACT_APP_DEMO_LINK: ${DEMO_LINK}
-      REACT_APP_PADDLE_SECRET_TOKEN: ${PADDLE_SECRET_TOKEN}
+      REACT_APP_PADDLE_SECRET_TOKEN: ${PADDLE_SECRET_TOKEN:-}
       REACT_APP_PADDLE_ENVIRONMENT: ${PADDLE_ENVIRONMENT:-sandbox}
       CHOKIDAR_USEPOLLING: "true"
       WDS_SOCKET_PORT: 0

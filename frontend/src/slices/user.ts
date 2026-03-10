@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getInitialPage, Page, SearchCriteria } from 'src/models/owns/page';
 import type { AppThunk } from 'src/store';
 import { UserMiniDTO, UserResponseDTO } from '../models/user';
-import api from '../utils/api';
+import api, { getErrorMessage } from '../utils/api';
 import { revertAll } from 'src/utils/redux';
 import { UiConfiguration } from '../models/owns/uiConfiguration';
 
@@ -185,17 +185,37 @@ export const getUsersMini =
   async (dispatch) => {
     const query =
       withRequesters !== undefined ? `?withRequesters=${withRequesters}` : '';
-    const users = await api.get<UserMiniDTO[]>(`users/mini${query}`);
-    dispatch(
-      withRequesters
-        ? slice.actions.getAllUsersMini({ users })
-        : slice.actions.getUsersMini({ users })
-    );
+    try {
+      const users = await api.get<UserMiniDTO[]>(`users/mini${query}`);
+      dispatch(
+        withRequesters
+          ? slice.actions.getAllUsersMini({ users })
+          : slice.actions.getUsersMini({ users })
+      );
+    } catch (error) {
+      if (getErrorMessage(error) === 'Access is denied') {
+        dispatch(
+          withRequesters
+            ? slice.actions.getAllUsersMini({ users: [] })
+            : slice.actions.getUsersMini({ users: [] })
+        );
+        return;
+      }
+      throw error;
+    }
   };
 
 export const getDisabledUsersMini = (): AppThunk => async (dispatch) => {
-  const users = await api.get<UserMiniDTO[]>('users/mini/disabled');
-  dispatch(slice.actions.getDisabledUsersMini({ users }));
+  try {
+    const users = await api.get<UserMiniDTO[]>('users/mini/disabled');
+    dispatch(slice.actions.getDisabledUsersMini({ users }));
+  } catch (error) {
+    if (getErrorMessage(error) === 'Access is denied') {
+      dispatch(slice.actions.getDisabledUsersMini({ users: [] }));
+      return;
+    }
+    throw error;
+  }
 };
 export const addUser =
   (user): AppThunk =>

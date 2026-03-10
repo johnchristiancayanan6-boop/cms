@@ -54,11 +54,14 @@ function Upgrade() {
 
   useEffect(() => {
     setTitle(t('upgrade'));
-    if (user.ownsCompany) dispatch(getDisabledUsersMini());
+    if (user?.ownsCompany) {
+      dispatch(getDisabledUsersMini()).catch(() => undefined);
+    }
   }, []);
 
   useEffect(() => {
-    setMaxUsers(company.subscription.usersCount - usersMini.length);
+    const allowedUsers = company?.subscription?.usersCount ?? usersMini.length;
+    setMaxUsers(Math.max(0, allowedUsers - usersMini.length));
   }, [usersMini, disabledUsersMini]);
 
   const onUpgrade = () => {
@@ -85,7 +88,7 @@ function Upgrade() {
     newSelectedUsers[id] = value;
     setSelectedUsers(newSelectedUsers);
   };
-  if (company.subscription.upgradeNeeded && user.ownsCompany)
+  if (company?.subscription?.upgradeNeeded && user?.ownsCompany)
     return (
       <>
         <Helmet>

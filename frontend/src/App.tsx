@@ -128,12 +128,15 @@ function App() {
       !['downgrade', 'upgrade'].includes(arr[arr.length - 1]) &&
       isInitialized &&
       isAuthenticated
-    )
-      if (company.subscription.downgradeNeeded) {
+    ) {
+      const subscription = company?.subscription;
+      if (!subscription) return;
+      if (subscription.downgradeNeeded) {
         navigate('/app/downgrade');
-      } else if (user.ownsCompany && company.subscription.upgradeNeeded) {
+      } else if (user?.ownsCompany && subscription.upgradeNeeded) {
         navigate('/app/upgrade');
       }
+    }
   }, [company, isInitialized, isAuthenticated, location]);
 
   useEffect(() => {
@@ -143,7 +146,7 @@ function App() {
       isInitialized &&
       isAuthenticated
     )
-      if (user.superAccountRelations.length) {
+      if (user?.superAccountRelations?.length) {
         navigate('/app/switch-account');
       }
   }, [user, isInitialized, isAuthenticated, location]);
