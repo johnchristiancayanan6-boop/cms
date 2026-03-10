@@ -6,3 +6,4 @@
 eastwest_backups
 docker-compose-dev.yml
 logo
+node_modules/
