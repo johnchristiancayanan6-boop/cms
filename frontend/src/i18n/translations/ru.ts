@@ -16,7 +16,7 @@ const ruJSON = {
   'home.built': 'Создано, чтобы упростить управление обслуживанием',
   home_description:
     'Когда доски и стикеры превращаются в хаос, а вам нужна CMMS-система, которую команда реально сможет использовать — попробуйте {{shortBrandName}}',
-  try_grash: 'Попробовать {{shortBrandName}}',
+  try_eastwest: 'Попробовать {{shortBrandName}}',
   login: 'Войти',
   start_trial: 'Начать бесплатный пробный период',
 
@@ -1089,7 +1089,7 @@ const ruJSON = {
   your_payment_secure: 'Ваши платёжные данные зашифрованы и защищены.',
   plan: 'Тариф',
   current_plan: 'Текущий тариф',
-  number_users_who_will_use_grash:
+  number_users_who_will_use_eastwest:
     'Количество пользователей, которые будут использовать {{shortBrandName}}',
   admin_role: 'Администратор',
   technical_role: 'Техник',

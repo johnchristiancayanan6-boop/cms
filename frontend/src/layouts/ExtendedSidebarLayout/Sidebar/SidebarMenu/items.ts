@@ -367,7 +367,7 @@ const templateItems = [
         name: 'Data Display',
         icon: HealthAndSafetyTwoToneIcon,
         badge: '',
-        badgeTooltip: 'Tokyo contains over 250 data display blocks',
+        badgeTooltip: 'EastWest BPO - MCI contains over 250 data display blocks',
         link: '/extended-sidebar/blocks',
         items: [
           {

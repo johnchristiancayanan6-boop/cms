@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@mui/x-data-grid-pro": "^8.27.2",
+    "react-dom": "^19.2.4",
+    "react-helmet": "^6.1.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.13.0",
+    "react-use-zendesk": "^2.0.0"
+  }
+}

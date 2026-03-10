@@ -1,10 +1,10 @@
 import { Link as RouterLink, useSearchParams } from 'react-router-dom';
 import {
+  alpha,
   Box,
   Card,
   Container,
   Divider,
-  IconButton,
   Link,
   List,
   ListItem,
@@ -18,14 +18,6 @@ import JWTRegister from '../RegisterJWT';
 import { useTranslation } from 'react-i18next';
 import CheckCircleOutlineTwoToneIcon from '@mui/icons-material/CheckCircleOutlineTwoTone';
 import Scrollbar from 'src/components/Scrollbar';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Pagination } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import ChevronRightTwoToneIcon from '@mui/icons-material/ChevronRightTwoTone';
-import ChevronLeftTwoToneIcon from '@mui/icons-material/ChevronLeftTwoTone';
-import { useBrand } from '../../../../../hooks/useBrand';
 import CompanyLogos from '../../../../landing/components/CompanyLogos';
 import { isCloudVersion } from '../../../../../config';
 
@@ -34,6 +26,9 @@ const Content = styled(Box)(
     display: flex;
     flex: 1;
     width: 100%;
+    background: radial-gradient(circle at 18% 12%, rgba(28, 138, 216, 0.16) 0%, transparent 45%),
+      radial-gradient(circle at 82% 80%, rgba(255, 122, 0, 0.12) 0%, transparent 40%),
+      #eef3f9;
 `
 );
 
@@ -45,6 +40,8 @@ const MainContent = styled(Box)(
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 `
 );
 
@@ -55,7 +52,8 @@ const SidebarWrapper = styled(Box)(
   top: 0;
   height: 100%;
   width: 500px;
-  background: ${theme.colors.gradients.blue3};
+  background: radial-gradient(circle at 8% 15%, rgba(59, 158, 236, 0.2) 0%, transparent 42%),
+    linear-gradient(160deg, #0C2040 0%, #17355E 58%, #1D4A7B 100%);
 `
 );
 
@@ -74,34 +72,12 @@ const CardImg = styled(Card)(
     align-items: center;
     justify-content: center;
     position: relative;
-    border: 11px solid ${theme.colors.alpha.trueWhite[10]};
-    transition: ${theme.transitions.create(['border'])};
-    width: ${theme.spacing(8)};
-    height: ${theme.spacing(8)};
+    border: 8px solid ${alpha(theme.colors.alpha.trueWhite[100], 0.18)};
+    transition: none;
+    width: ${theme.spacing(13)};
+    height: ${theme.spacing(13)};
     margin-bottom: ${theme.spacing(3)};
-`
-);
-
-const SwipeIndicator = styled(IconButton)(
-  ({ theme }) => `
-        color: ${theme.colors.alpha.trueWhite[50]};
-        width: ${theme.spacing(6)};
-        height: ${theme.spacing(6)};
-        border-radius: 100px;
-        transition: ${theme.transitions.create(['background', 'color'])};
-
-        &:hover {
-          color: ${theme.colors.alpha.trueWhite[100]};
-          background: ${theme.colors.alpha.trueWhite[10]};
-        }
-`
-);
-
-const LogoWrapper = styled(Box)(
-  ({ theme }) => `
-    position: fixed;
-    left: ${theme.spacing(4)};
-    top: ${theme.spacing(4)};
+    overflow: hidden;
 `
 );
 
@@ -135,62 +111,9 @@ const ListItemIconWrapper = styled(ListItemIcon)(
 `
 );
 
-const SwiperWrapper = styled(Box)(
-  ({ theme }) => `
-      .swiper-pagination {
-        .swiper-pagination-bullet {
-          background: ${theme.colors.alpha.trueWhite[30]};
-          opacity: 1;
-          transform: scale(1);
-
-          &.swiper-pagination-bullet-active {
-            background: ${theme.colors.alpha.trueWhite[100]};
-            width: 16px;
-            border-radius: 6px;
-          }
-        }
-      }
-`
-);
-
 function RegisterCover() {
   const { t }: { t: any } = useTranslation();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const { logo } = useBrand();
-  const icons = {
-    Atlas: logo.dark,
-    FirebaseAuth: '/static/images/logo/firebase.svg',
-    JWT: '/static/images/logo/jwt.svg',
-    Amplify: '/static/images/logo/amplify.svg'
-  };
-
-  const sliders = [
-    {
-      title: 'request_system',
-      description: 'work-requests.checks.0',
-      image: icons.Atlas
-    },
-    {
-      title: 'eam.title',
-      description: 'eam.description.short',
-      image: icons.Atlas
-    },
-    {
-      title: 'preventive_maintenance',
-      description: 'pm.descriptions.0',
-      image: icons.Atlas
-    },
-    {
-      title: 'work_orders',
-      description: 'work-orders.description.short',
-      image: icons.Atlas
-    },
-    {
-      title: 'parts_inventory',
-      description: 'part.description.short',
-      image: icons.Atlas
-    }
-  ];
+  const [searchParams] = useSearchParams();
   return (
     <>
       <Helmet>
@@ -205,14 +128,6 @@ function RegisterCover() {
         >
           <Scrollbar>
             <SidebarContent>
-              <Box mb={2} display="flex" justifyContent="center">
-                <SwipeIndicator className="MuiSwipe-root MuiSwipe-left">
-                  <ChevronLeftTwoToneIcon fontSize="large" />
-                </SwipeIndicator>
-                <SwipeIndicator className="MuiSwipe-root MuiSwipe-right">
-                  <ChevronRightTwoToneIcon fontSize="large" />
-                </SwipeIndicator>
-              </Box>
               <TypographyPrimary
                 align="center"
                 variant="h3"
@@ -223,59 +138,26 @@ function RegisterCover() {
               >
                 {t('perfect_tool')}
               </TypographyPrimary>
-              <SwiperWrapper>
-                <Swiper
-                  spaceBetween={30}
-                  slidesPerView={1}
-                  loop
-                  autoplay={{
-                    delay: 2000,
-                    disableOnInteraction: false
-                  }}
-                  navigation={{
-                    nextEl: '.MuiSwipe-right',
-                    prevEl: '.MuiSwipe-left'
-                  }}
-                  // @ts-ignore
-                  modules={[Navigation, Pagination, Autoplay]}
-                  pagination={{
-                    clickable: true,
-                    dynamicBullets: true
-                  }}
-                >
-                  {sliders.map((slider, index) => (
-                    <SwiperSlide key={index}>
-                      <Box textAlign="center">
-                        <CardImg>
-                          <img
-                            height={40}
-                            alt="JSON Web Token"
-                            src={slider.image}
-                          />
-                        </CardImg>
-                        <TypographyPrimary
-                          align="center"
-                          variant="h3"
-                          sx={{
-                            mb: 2
-                          }}
-                        >
-                          {t(slider.title)}
-                        </TypographyPrimary>
-                        <TypographySecondary
-                          align="center"
-                          variant="subtitle2"
-                          sx={{
-                            mb: 5
-                          }}
-                        >
-                          {t(slider.description)}
-                        </TypographySecondary>
-                      </Box>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </SwiperWrapper>
+              <Box textAlign="center" mb={5}>
+                <CardImg>
+                  <img
+                    alt="EastWest BPO - MCI"
+                    src="/static/images/logo/logo.webp"
+                    style={{
+                      width: '78%',
+                      height: '78%',
+                      objectFit: 'contain',
+                      display: 'block'
+                    }}
+                  />
+                </CardImg>
+                <TypographyPrimary align="center" variant="h3" sx={{ mb: 2 }}>
+                  {t('work_orders')}
+                </TypographyPrimary>
+                <TypographySecondary align="center" variant="subtitle2">
+                  {t('work-orders.description.short')}
+                </TypographySecondary>
+              </Box>
               {isCloudVersion && (
                 <>
                   <DividerWrapper
@@ -318,12 +200,16 @@ function RegisterCover() {
         </SidebarWrapper>
         <MainContent>
           <Container maxWidth="sm">
-            <Card
-              sx={{
-                p: 4,
-                my: 4
-              }}
-            >
+          <Card
+            sx={{
+              p: 4,
+              my: 0,
+              width: '100%',
+              borderRadius: 3,
+              border: '1px solid rgba(16, 49, 92, 0.12)',
+              boxShadow: '0 22px 45px rgba(16, 40, 77, 0.12)'
+            }}
+          >
               <Box textAlign="center">
                 <Typography
                   variant="h2"

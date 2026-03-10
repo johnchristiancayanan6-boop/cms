@@ -5,7 +5,6 @@ import {
   Box,
   Divider,
   IconButton,
-  lighten,
   Stack,
   styled,
   Tooltip,
@@ -31,7 +30,6 @@ const HeaderWrapper = styled(Box)(
         right: 0;
         z-index: 6;
         background-color: ${alpha(theme.header.background, 0.95)};
-        backdrop-filter: blur(3px);
         position: fixed;
         justify-content: space-between;
         width: 100%;
@@ -39,6 +37,7 @@ const HeaderWrapper = styled(Box)(
             left: ${theme.sidebar.width};
             width: auto;
         }
+        border-bottom: 1px solid ${alpha(theme.colors.primary.main, 0.12)};
 `
 );
 
@@ -55,19 +54,7 @@ function Header() {
       display="flex"
       alignItems="center"
       sx={{
-        boxShadow:
-          theme.palette.mode === 'dark'
-            ? `0 1px 0 ${alpha(
-                lighten(theme.colors.primary.main, 0.7),
-                0.15
-              )}, 0px 2px 8px -3px rgba(0, 0, 0, 0.2), 0px 5px 22px -4px rgba(0, 0, 0, .1)`
-            : `0px 2px 8px -3px ${alpha(
-                theme.colors.alpha.black[100],
-                0.2
-              )}, 0px 5px 22px -4px ${alpha(
-                theme.colors.alpha.black[100],
-                0.1
-              )}`
+        boxShadow: `0 10px 24px ${alpha(theme.colors.primary.main, 0.1)}`
       }}
     >
       <Stack
@@ -79,7 +66,16 @@ function Header() {
         <IconButton onClick={()=>navigate(-1)} disabled={location.key==='default'}>
           <ArrowBackTwoToneIcon/>
           </IconButton>
-        <Typography variant="h2">{title}</Typography>
+        <Typography
+          variant="h2"
+          sx={{
+            fontSize: { xs: 22, md: 28 },
+            fontWeight: 800,
+            color: '#10335E'
+          }}
+        >
+          {title}
+        </Typography>
       </Stack>
       <Box display="flex" alignItems="center">
         <HeaderButtons />

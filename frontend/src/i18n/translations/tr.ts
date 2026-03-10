@@ -15,7 +15,7 @@ const trJSON = {
   'home.built': 'Bakım Yönetimini Kolaylaştırmak için Tasarlandı',
   home_description:
     "Beyaz tahtalar ve yapışkan notlar kaosa dönüştüğünde ve ekibinizin gerçekten kullanabileceği kadar kolay bir CMMS yazılımına ihtiyaç duyduğunuzda {{shortBrandName}}'ı deneyin",
-  try_grash: "{{shortBrandName}}'ı deneyin",
+  try_eastwest: "{{shortBrandName}}'ı deneyin",
   login: 'Giriş',
   start_trial: 'Ücretsiz denemeyi başlatın',
   'home.what': 'Ne',
@@ -1027,7 +1027,7 @@ const trJSON = {
   your_payment_secure: 'Ödeme verileriniz şifrelenir ve güvenlidir.',
   plan: 'Plan',
   current_plan: 'Mevcut Plan',
-  number_users_who_will_use_grash:
+  number_users_who_will_use_eastwest:
     "{{shortBrandName}}'ı kullanacak kullanıcı sayısı",
   admin_role: 'Yönetici',
   technical_role: 'Teknik',

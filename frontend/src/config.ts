@@ -29,11 +29,10 @@ export const apiUrl = rawApiUrl
     : rawApiUrl + '/'
   : 'http://localhost:8080/';
 
-export const muiLicense = getRuntimeValue('MUI_X_LICENSE');
-
 export const zendeskKey = '';
 
 export const googleTrackingId = getRuntimeValue('GOOGLE_TRACKING_ID');
+export const muiXLicenseKey = getRuntimeValue('MUI_X_LICENSE');
 export const oauth2Provider = getRuntimeValue('OAUTH2_PROVIDER') as
   | 'GOOGLE'
   | 'MICROSOFT';

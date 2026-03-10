@@ -123,7 +123,7 @@ const frJSON = {
   'home.built': 'Conçu pour faciliter la gestion de la maintenance',
   home_description:
     "Lorsque les tableaux blancs et les notes autocollantes sont chaotiques et que vous avez besoin d'un logiciel de GMAO suffisamment facile à utiliser pour votre équipe, essayez {{shortBrandName}}",
-  try_grash: 'Essayer {{shortBrandName}}',
+  try_eastwest: 'Essayer {{shortBrandName}}',
   login: 'Se connecter',
   start_trial: 'Commencez un essai gratuit',
   'home.what': 'Ce que',
@@ -1190,7 +1190,7 @@ const frJSON = {
   your_payment_secure: 'Vos données de paiement sont cryptées et sécurisées.',
   plan: 'Plan',
   current_plan: 'Plan actuel',
-  number_users_who_will_use_grash:
+  number_users_who_will_use_eastwest:
     "Nombre d'utilisateurs qui utiliseront {{shortBrandName}}",
   admin_role: 'Administrateur',
   technical_role: 'Technique',

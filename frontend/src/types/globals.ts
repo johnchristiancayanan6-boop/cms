@@ -7,9 +7,9 @@ declare global {
       INVITATION_VIA_EMAIL: string;
       GOOGLE_TRACKING_ID: string;
       GOOGLE_KEY: string;
+      MUI_X_LICENSE: string;
       API_URL: string;
       NODE_ENV: string;
-      MUI_X_LICENSE: string;
     };
   }
 }

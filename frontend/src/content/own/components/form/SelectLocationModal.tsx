@@ -24,7 +24,7 @@ import {
   GridRow,
   GridSelectionModel
 } from '@mui/x-data-grid';
-import { DataGridProProps, useGridApiRef } from '@mui/x-data-grid-pro';
+import { DataGridProps, useGridApiRef } from '@mui/x-data-grid';
 import { LocationMiniDTO } from '../../../../models/owns/location';
 import { GroupingCellWithLazyLoading } from '../../Assets/GroupingCellWithLazyLoading';
 import ReplayTwoToneIcon from '@mui/icons-material/ReplayTwoTone';
@@ -170,21 +170,34 @@ const SelectLocationModal: React.FC<SelectLocationModalProps> = ({
     }
   ];
 
-  const groupingColDef: DataGridProProps['groupingColDef'] = {
+  const groupingColDef: any = {
     headerName: t('hierarchy'),
     renderCell: (params) => <GroupingCellWithLazyLoading {...params} />
   };
 
+  const getRowById = (id: string | number): IRow | undefined => {
+    if (typeof apiRef.current?.getRow === 'function') {
+      return apiRef.current.getRow(id) as IRow;
+    }
+    return locationsHierarchy.find((row) => row.id === id);
+  };
+
   const CustomRow = (props: React.ComponentProps<typeof GridRow>) => {
-    const rowNode = apiRef.current.getRowNode(props.rowId);
+    const row =
+      (getRowById(props.rowId as string | number) ??
+        (props as any).row ??
+        (props as any).model) as
+      | { hierarchy?: unknown[] }
+      | null;
+    const depth = Math.max((row?.hierarchy?.length ?? 1) - 1, 0);
     return (
       <GridRow
         {...props}
         style={
-          (rowNode?.depth ?? 0) > 0
+          depth > 0
             ? {
                 backgroundColor:
-                  rowNode.depth % 2 === 0
+                  depth % 2 === 0
                     ? theme.colors.primary.light
                     : theme.colors.primary.main,
                 color: 'white'
@@ -220,9 +233,9 @@ const SelectLocationModal: React.FC<SelectLocationModalProps> = ({
     setSelectionModel(currentSelectionModel);
 
     // Update the selected locations array
-    const updatedSelectedLocations = currentSelectionModel.map((id) => {
-      return apiRef.current.getRow(id) as IRow;
-    });
+    const updatedSelectedLocations = currentSelectionModel
+      .map((id) => getRowById(id as string | number))
+      .filter(Boolean) as IRow[];
     setSelectedLocations(updatedSelectedLocations);
     if (single) {
       onSelect(updatedSelectedLocations);
@@ -307,9 +320,9 @@ const SelectLocationModal: React.FC<SelectLocationModalProps> = ({
                 return;
               }
               setSelectionModel(newSelectionModel);
-              const updatedSelectedLocations = newSelectionModel.map((id) => {
-                return apiRef.current.getRow(id) as IRow;
-              });
+              const updatedSelectedLocations = newSelectionModel
+                .map((id) => getRowById(id as string | number))
+                .filter(Boolean) as IRow[];
 
               setSelectedLocations(updatedSelectedLocations);
             }}

@@ -41,21 +41,21 @@ const foodBeverageData: IndustryLayoutProps = {
       description:
         'Automate maintenance schedules for mixers, conveyors, refrigeration systems, and packaging lines to avoid contamination risks and unexpected shutdowns.',
       imageUrl:
-        'https://atlas-cmms.com/assets/features/preventive-maintenance.png',
+        'https://eastwest-bpo-mci.com/assets/features/preventive-maintenance.png',
       learnMoreUrl: '/features/preventive-maintenance'
     },
     {
       title: 'Traceable work orders and compliance records',
       description:
         'Maintain complete maintenance logs, inspections, and corrective actions to support food safety standards, audits, and regulatory compliance.',
-      imageUrl: 'https://atlas-cmms.com/assets/features/work-orders.png',
+      imageUrl: 'https://eastwest-bpo-mci.com/assets/features/work-orders.png',
       learnMoreUrl: '/features/work-orders'
     },
     {
       title: 'Spare parts and cold-chain asset monitoring',
       description:
         'Track spare parts availability, monitor critical refrigeration assets, and reduce spoilage caused by equipment failure or delayed repairs.',
-      imageUrl: 'https://atlas-cmms.com/assets/features/assets.png',
+      imageUrl: 'https://eastwest-bpo-mci.com/assets/features/assets.png',
       learnMoreUrl: '/features/assets'
     }
   ],
@@ -69,20 +69,20 @@ const foodBeverageData: IndustryLayoutProps = {
         'Food and beverage operations require strict hygiene, traceability, and equipment reliability. A CMMS centralizes maintenance planning, inspections, and asset history to ensure safety, compliance, and continuous production.'
     },
     {
-      question: 'Can Atlas CMMS support regulatory compliance and audits?',
+      question: 'Can EastWest BPO - MCI support regulatory compliance and audits?',
       answer:
-        'Yes. Atlas CMMS stores maintenance records, inspection reports, and corrective actions, helping teams prepare for food safety audits and regulatory requirements.'
+        'Yes. EastWest BPO - MCI stores maintenance records, inspection reports, and corrective actions, helping teams prepare for food safety audits and regulatory requirements.'
     },
     {
       question:
-        'Is Atlas CMMS suitable for refrigerated and cold-chain equipment?',
+        'Is EastWest BPO - MCI suitable for refrigerated and cold-chain equipment?',
       answer:
-        'Absolutely. Atlas CMMS tracks maintenance schedules, failures, and spare parts for refrigeration and temperature-sensitive assets to reduce spoilage risks.'
+        'Absolutely. EastWest BPO - MCI tracks maintenance schedules, failures, and spare parts for refrigeration and temperature-sensitive assets to reduce spoilage risks.'
     },
     {
-      question: 'Can Atlas CMMS be deployed on-premise in food factories?',
+      question: 'Can EastWest BPO - MCI be deployed on-premise in food factories?',
       answer:
-        'Yes. Atlas CMMS is fully self-hosted and Docker-ready, making it ideal for facilities with strict security, privacy, or network isolation requirements.'
+        'Yes. EastWest BPO - MCI is fully self-hosted and Docker-ready, making it ideal for facilities with strict security, privacy, or network isolation requirements.'
     }
   ],
 

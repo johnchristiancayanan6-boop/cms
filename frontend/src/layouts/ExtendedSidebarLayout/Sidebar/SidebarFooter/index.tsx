@@ -63,12 +63,12 @@ function SidebarFooter() {
         <LightTooltip placement="top" arrow title={t('upgrade_now')}>
           <IconButton
             sx={{
-              background: `${theme.colors.alpha.trueWhite[10]}`,
-              color: `${theme.colors.alpha.trueWhite[70]}`,
+              background: `${alpha(theme.colors.info.main, 0.14)}`,
+              color: `${theme.colors.alpha.trueWhite[100]}`,
               transition: `${theme.transitions.create(['all'])}`,
 
               '&:hover': {
-                background: `${alpha(theme.colors.alpha.trueWhite[100], 0.2)}`,
+                background: `${alpha(theme.colors.warning.main, 0.24)}`,
                 color: `${theme.colors.alpha.trueWhite[100]}`
               }
             }}
@@ -76,7 +76,7 @@ function SidebarFooter() {
             {...(isCloudVersion
               ? { to: '/app/subscription/plans' }
               : {
-                  href: 'https://atlas-cmms.com/pricing?type=selfhosted',
+                  href: 'https://eastwest-bpo-mci.com/pricing?type=selfhosted',
                   target: '_blank',
                   rel: 'noopener noreferrer'
                 })}
@@ -88,16 +88,16 @@ function SidebarFooter() {
       <LightTooltip placement="top" arrow title={t('documentation')}>
         <IconButton
           sx={{
-            background: `${theme.colors.alpha.trueWhite[10]}`,
-            color: `${theme.colors.alpha.trueWhite[70]}`,
+            background: `${alpha(theme.colors.info.main, 0.14)}`,
+            color: `${theme.colors.alpha.trueWhite[100]}`,
             transition: `${theme.transitions.create(['all'])}`,
 
             '&:hover': {
-              background: `${alpha(theme.colors.alpha.trueWhite[100], 0.2)}`,
+              background: `${alpha(theme.colors.warning.main, 0.24)}`,
               color: `${theme.colors.alpha.trueWhite[100]}`
             }
           }}
-          onClick={() => window.open('https://grashjs.github.io/user-guide')}
+          onClick={() => window.open('https://eastwestjs.github.io/user-guide')}
         >
           <QuestionMarkTwoToneIcon fontSize="small" />
         </IconButton>
@@ -106,12 +106,12 @@ function SidebarFooter() {
         <LightTooltip placement="top" arrow title={t('wo_calendar')}>
           <IconButton
             sx={{
-              background: `${theme.colors.alpha.trueWhite[10]}`,
-              color: `${theme.colors.alpha.trueWhite[70]}`,
+              background: `${alpha(theme.colors.info.main, 0.14)}`,
+              color: `${theme.colors.alpha.trueWhite[100]}`,
               transition: `${theme.transitions.create(['all'])}`,
 
               '&:hover': {
-                background: `${alpha(theme.colors.alpha.trueWhite[100], 0.2)}`,
+                background: `${alpha(theme.colors.warning.main, 0.24)}`,
                 color: `${theme.colors.alpha.trueWhite[100]}`
               }
             }}
@@ -125,12 +125,12 @@ function SidebarFooter() {
       <LightTooltip placement="top" arrow title={t('Logout')}>
         <IconButton
           sx={{
-            background: `${theme.colors.alpha.trueWhite[10]}`,
-            color: `${theme.colors.alpha.trueWhite[70]}`,
+            background: `${alpha(theme.colors.info.main, 0.14)}`,
+            color: `${theme.colors.alpha.trueWhite[100]}`,
             transition: `${theme.transitions.create(['all'])}`,
 
             '&:hover': {
-              background: `${alpha(theme.colors.alpha.trueWhite[100], 0.2)}`,
+              background: `${alpha(theme.colors.warning.main, 0.24)}`,
               color: `${theme.colors.alpha.trueWhite[100]}`
             }
           }}

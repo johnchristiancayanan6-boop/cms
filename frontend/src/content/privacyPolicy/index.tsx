@@ -27,12 +27,12 @@ function Overview() {
   return (
     <Box>
       <Helmet>
-        <title>{t('privacy_policy')} - Atlas CMMS</title>
+        <title>{t('privacy_policy')} - EastWest BPO - MCI</title>
         <meta
           name="description"
-          content="Read the Privacy Policy for Atlas CMMS. Learn how we protect your data and ensure security in our open-source maintenance management platform."
+          content="Read the Privacy Policy for EastWest BPO - MCI. Learn how we protect your data and ensure security in our open-source maintenance management platform."
         />
-        <link rel="canonical" href="https://atlas-cmms.com/privacy" />
+        <link rel="canonical" href="https://eastwest-bpo-mci.com/privacy" />
       </Helmet>
       <NavBar />
       <Container maxWidth="lg" sx={{ mt: 8 }}>

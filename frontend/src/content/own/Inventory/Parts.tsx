@@ -63,7 +63,7 @@ import MoreVertTwoToneIcon from '@mui/icons-material/MoreVertTwoTone';
 import { PermissionEntity } from '../../../models/owns/role';
 import SearchInput from '../components/SearchInput';
 import { PlanFeature } from '../../../models/owns/subscriptionPlan';
-import { useGridApiRef } from '@mui/x-data-grid-pro';
+import { useGridApiRef } from '@mui/x-data-grid';
 import useGridStatePersist from '../../../hooks/useGridStatePersist';
 import { CategoryMiniDTO } from '../../../models/owns/category';
 import { getErrorMessage } from '../../../utils/api';
@@ -827,3 +827,4 @@ const Parts = ({ setAction }: PropsType) => {
 };
 
 export default Parts;
+

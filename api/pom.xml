@@ -8,11 +8,11 @@
         <version>3.2.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.grash</groupId>
+    <groupId>com.eastwest</groupId>
     <artifactId>api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>api</name>
-    <description>Atlas application programming interface</description>
+    <description>EeastWest BPO - MCI application programming interface</description>
     <properties>
         <java.version>17</java.version>
         <org.thymeleaf-version>3.0.11.RELEASE</org.thymeleaf-version>
@@ -212,7 +212,7 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
-                    <mainClass>com.grash.ApiApplication</mainClass>
+                    <mainClass>com.eastwest.ApiApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>

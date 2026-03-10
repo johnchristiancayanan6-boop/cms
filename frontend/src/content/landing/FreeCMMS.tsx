@@ -19,7 +19,7 @@ function FreeCMMSPage() {
   return (
     <OverviewWrapper>
       <Helmet>
-        <title>Atlas Free CMMS Software | No credit card required</title>
+        <title>EastWest BPO - MCI Free CMMS Software | No credit card required</title>
         <meta
           name="description"
           content="Free CMMS software — not a trial. Manage maintenance, assets and work orders instantly. No credit card required."
@@ -28,7 +28,7 @@ function FreeCMMSPage() {
           name="keywords"
           content="free cmms, maintenance management software, free work order software, asset tracking, preventive maintenance"
         />
-        <link rel={'canonical'} href={'https://atlas-cmms.com/free-cmms'} />
+        <link rel={'canonical'} href={'https://eastwest-bpo-mci.com/free-cmms'} />
       </Helmet>
       <NavBar />
       <HeroFree />

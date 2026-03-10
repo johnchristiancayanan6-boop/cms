@@ -6,7 +6,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import useAuth from 'src/hooks/useAuth';
 
-import { Alert, CssBaseline } from '@mui/material';
+import { Alert, CssBaseline, GlobalStyles } from '@mui/material';
 import ThemeProvider from './theme/ThemeProvider';
 import AppInit from './components/AppInit';
 import { CustomSnackBarProvider } from './contexts/CustomSnackBarContext';
@@ -17,6 +17,7 @@ import {
   IS_LOCALHOST,
   isCloudVersion,
   isWhiteLabeled,
+  muiXLicenseKey,
   PADDLE_SECRET_TOKEN,
   paddleEnvironment
 } from './config';
@@ -31,6 +32,16 @@ import { useLicenseEntitlement } from './hooks/useLicenseEntitlement';
 import { initializePaddle } from '@paddle/paddle-js';
 
 if (!IS_LOCALHOST && googleTrackingId) ReactGA.initialize(googleTrackingId);
+if (!muiXLicenseKey) {
+  const originalError = console.error;
+  console.error = (...args: unknown[]) => {
+    const joined = args.map((arg) => String(arg ?? '')).join(' ');
+    if (joined.includes('MUI: License key not found for @mui/x-date-pickers-pro')) {
+      return;
+    }
+    originalError(...args);
+  };
+}
 
 const DemoAlert = () => {
   const [show, setShow] = useState<boolean>(true);
@@ -185,6 +196,14 @@ function App() {
             <CustomSnackBarProvider>
               <CompanySettingsProvider>
                 <CssBaseline />
+                <GlobalStyles
+                  styles={{
+                    '.MuiDataGrid-root div[style*="z-index: 100000"][style*="letter-spacing: 5"][style*="pointer-events: none"]':
+                      {
+                        display: 'none !important'
+                      }
+                  }}
+                />
                 {isInitialized ? content : <AppInit />}
                 {user && company?.demo && <DemoAlert />}
                 <DemoCleaningAlert />

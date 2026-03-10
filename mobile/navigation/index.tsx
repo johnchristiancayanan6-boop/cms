@@ -587,7 +587,7 @@ function BottomTabNavigator({ navigation }: RootTabScreenProps<'Home'>) {
                   fontWeight: 'bold'
                 }}
               >
-                Atlas
+                Eastwest
               </Text>
             ),
             title: t('home'),

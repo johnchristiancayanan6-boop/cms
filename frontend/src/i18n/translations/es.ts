@@ -15,7 +15,7 @@ const esJSON = {
   'home.built': 'Diseñado para facilitar la gestión del mantenimiento',
   home_description:
     'Cuando las pizarras y las notas adhesivas son un caos y necesitas un CMMS que sea fácil de usar por tu equipo, prueba {{shortBrandName}} ',
-  try_grash: 'Prueba {{shortBrandName}}',
+  try_eastwest: 'Prueba {{shortBrandName}}',
   login: 'Iniciar sesión',
   start_trial: 'Comienza una prueba gratis',
   'home.what': 'Que',
@@ -1082,7 +1082,7 @@ const esJSON = {
   your_payment_secure: 'Sus datos de pago están encriptados y seguros.',
   plan: 'Plan',
   current_plan: 'Plan actual',
-  number_users_who_will_use_grash:
+  number_users_who_will_use_eastwest:
     'Número de usuarios que utilizarán {{shortBrandName}}',
   admin_role: 'Administrador',
   technical_role: 'Técnico',

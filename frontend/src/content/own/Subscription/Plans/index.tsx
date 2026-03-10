@@ -253,7 +253,7 @@ function SubscriptionPlans() {
                 <Box>
                   <Box>
                     <Typography variant="h4" gutterBottom>
-                      {t('number_users_who_will_use_grash', {
+                      {t('number_users_who_will_use_eastwest', {
                         shortBrandName: brandConfig.shortName
                       })}
                     </Typography>

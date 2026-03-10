@@ -133,7 +133,7 @@ export default function NavBar() {
                     window.open('https://www.intel-loop.com/', '_blank');
                   }}
                 >
-                  Powered by Intelloop
+                  Powered by EastWest BPO - MCI
                 </Typography>
               )}
             </Box>
@@ -354,7 +354,7 @@ export default function NavBar() {
                   <Button
                     component={'a'}
                     target={'_blank'}
-                    href={'https://github.com/Grashjs/cmms'}
+                    href={'https://github.com/Eastwestjs/cmms'}
                     startIcon={<GitHub />}
                   >
                     GitHub
@@ -567,7 +567,7 @@ export default function NavBar() {
                       >
                         <ListItem
                           component="a"
-                          href="https://github.com/Grashjs/cmms"
+                          href="https://github.com/Eastwestjs/cmms"
                           target="_blank"
                           onClick={handleMenuClose}
                           sx={{ py: 2 }}

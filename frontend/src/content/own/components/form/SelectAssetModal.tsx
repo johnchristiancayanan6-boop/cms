@@ -21,7 +21,7 @@ import {
   GridRow,
   GridSelectionModel
 } from '@mui/x-data-grid';
-import { DataGridProProps, useGridApiRef } from '@mui/x-data-grid-pro';
+import { DataGridProps, useGridApiRef } from '@mui/x-data-grid';
 import { AssetMiniDTO } from '../../../../models/owns/asset';
 import { GroupingCellWithLazyLoading } from '../../Assets/GroupingCellWithLazyLoading';
 import ReplayTwoToneIcon from '@mui/icons-material/ReplayTwoTone';
@@ -165,21 +165,34 @@ const SelectAssetModal: React.FC<SelectAssetModalProps> = ({
     }
   ];
 
-  const groupingColDef: DataGridProProps['groupingColDef'] = {
+  const groupingColDef: any = {
     headerName: t('hierarchy'),
     renderCell: (params) => <GroupingCellWithLazyLoading {...params} />
   };
 
+  const getRowById = (id: string | number): IRow | undefined => {
+    if (typeof apiRef.current?.getRow === 'function') {
+      return apiRef.current.getRow(id) as IRow;
+    }
+    return assetsHierarchy.find((row) => row.id === id);
+  };
+
   const CustomRow = (props: React.ComponentProps<typeof GridRow>) => {
-    const rowNode = apiRef.current.getRowNode(props.rowId);
+    const row =
+      (getRowById(props.rowId as string | number) ??
+        (props as any).row ??
+        (props as any).model) as
+      | { hierarchy?: unknown[] }
+      | null;
+    const depth = Math.max((row?.hierarchy?.length ?? 1) - 1, 0);
     return (
       <GridRow
         {...props}
         style={
-          (rowNode?.depth ?? 0) > 0
+          depth > 0
             ? {
                 backgroundColor:
-                  rowNode.depth % 2 === 0
+                  depth % 2 === 0
                     ? theme.colors.primary.light
                     : theme.colors.primary.main,
                 color: 'white'
@@ -215,9 +228,9 @@ const SelectAssetModal: React.FC<SelectAssetModalProps> = ({
     setSelectionModel(currentSelectionModel);
 
     // Update the selected assets array
-    const updatedSelectedAssets = currentSelectionModel.map((id) => {
-      return apiRef.current.getRow(id) as IRow;
-    });
+    const updatedSelectedAssets = currentSelectionModel
+      .map((id) => getRowById(id as string | number))
+      .filter(Boolean) as IRow[];
     setSelectedAssets(updatedSelectedAssets);
     if (single) {
       onSelect(updatedSelectedAssets);
@@ -302,9 +315,9 @@ const SelectAssetModal: React.FC<SelectAssetModalProps> = ({
                 return;
               }
               setSelectionModel(newSelectionModel);
-              const updatedSelectedAssets = newSelectionModel.map((id) => {
-                return apiRef.current.getRow(id) as IRow;
-              });
+              const updatedSelectedAssets = newSelectionModel
+                .map((id) => getRowById(id as string | number))
+                .filter(Boolean) as IRow[];
 
               setSelectedAssets(updatedSelectedAssets);
             }}

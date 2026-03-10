@@ -1,28 +1,31 @@
-name: atlas-cmms
+name: eastwest-bpo-mci
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: atlas_db
+    container_name: eastwest_db
     environment:
-      POSTGRES_DB: atlas
+      POSTGRES_DB: eastwest
       POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PWD}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-mypassword}
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
   api:
-    image: intelloop/atlas-cmms-backend
-    container_name: atlas-cmms-backend
+    image: eastwest-bpo-mci-backend
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: eastwest-backend
     depends_on:
       - postgres
       - minio
     volumes:
       - ./logo:/app/static/images
     environment:
-      DB_URL: postgres/atlas
+      DB_URL: postgres/eastwest
       DB_USER: ${POSTGRES_USER}
-      DB_PWD: ${POSTGRES_PWD}
+      DB_PWD: ${POSTGRES_PASSWORD:-mypassword}
       PUBLIC_API_URL: ${PUBLIC_API_URL:-http://localhost:8080}
       FASTSPRING_PWD: ${FASTSPRING_PWD}
       FASTSPRING_USER: ${FASTSPRING_USER}
@@ -38,7 +41,7 @@ services:
       SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
       JWT_SECRET_KEY: ${JWT_SECRET_KEY}
       MINIO_ENDPOINT: http://minio:9000
-      MINIO_BUCKET: atlas-bucket
+      MINIO_BUCKET: eastwest-bucket
       MINIO_ACCESS_KEY: ${MINIO_USER}
       MINIO_SECRET_KEY: ${MINIO_PASSWORD}
       STORAGE_TYPE: ${STORAGE_TYPE:-minio} #gpc|minio
@@ -50,6 +53,7 @@ services:
       OAUTH2_CLIENT_ID: ${OAUTH2_CLIENT_ID}
       OAUTH2_CLIENT_SECRET: ${OAUTH2_CLIENT_SECRET}
       LICENSE_KEY: ${LICENSE_KEY:-}
+      LICENSE_ENFORCEMENT: ${LICENSE_ENFORCEMENT:-false}
       LICENSE_FINGERPRINT_REQUIRED: ${LICENSE_FINGERPRINT_REQUIRED:-true}
       ALLOWED_ORGANIZATION_ADMINS: ${ALLOWED_ORGANIZATION_ADMINS:-}
       LOGO_PATHS: ${LOGO_PATHS}
@@ -67,8 +71,10 @@ services:
     ports:
       - "8080:8080"
   frontend:
-    image: intelloop/atlas-cmms-frontend
-    container_name: atlas-cmms-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: eastwest-frontend
     environment:
         API_URL: ${PUBLIC_API_URL}
         GOOGLE_KEY: ${GOOGLE_KEY:- }
@@ -91,7 +97,7 @@ services:
       - api
   minio:
     image: minio/minio:RELEASE.2025-04-22T22-12-26Z
-    container_name: atlas_minio
+    container_name: eastwest_minio
     environment:
       MINIO_ROOT_USER: ${MINIO_USER}
       MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD}
@@ -104,4 +110,8 @@ services:
 
 volumes:
   postgres_data:
+    external: true
+    name: eastwest-bpo-mci_postgres_data
   minio_data:
+    external: true
+    name: eastwest-bpo-mci_minio_data

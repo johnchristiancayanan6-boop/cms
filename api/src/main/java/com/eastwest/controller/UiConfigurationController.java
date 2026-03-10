@@ -1,0 +1,49 @@
+package com.eastwest.controller;
+
+import com.eastwest.dto.UiConfigurationPatchDTO;
+import com.eastwest.exception.CustomException;
+import com.eastwest.model.UiConfiguration;
+import com.eastwest.model.OwnUser;
+import com.eastwest.model.UiConfiguration;
+import com.eastwest.model.enums.PermissionEntity;
+import com.eastwest.model.enums.PlanFeatures;
+import com.eastwest.service.UiConfigurationService;
+import com.eastwest.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
+
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/ui-configurations")
+@Tag(name = "uiConfiguration")
+@RequiredArgsConstructor
+public class UiConfigurationController {
+
+    private final UiConfigurationService uiConfigurationService;
+    private final UserService userService;
+
+    @PatchMapping()
+    public UiConfiguration patch(@Valid @RequestBody UiConfigurationPatchDTO uiConfiguration,
+                                 HttpServletRequest req) {
+        OwnUser user = userService.whoami(req);
+        Optional<UiConfiguration> optionalUiConfiguration =
+                uiConfigurationService.findByCompanySettings(user.getCompany().getCompanySettings().getId());
+
+        if (optionalUiConfiguration.isPresent()) {
+            UiConfiguration savedUiConfiguration = optionalUiConfiguration.get();
+            if (user.getRole().getViewPermissions().contains(PermissionEntity.SETTINGS)) {
+                return uiConfigurationService.update(savedUiConfiguration.getId(), uiConfiguration);
+            } else throw new CustomException("Forbidden", HttpStatus.FORBIDDEN);
+        } else throw new CustomException("UiConfiguration not found", HttpStatus.NOT_FOUND);
+    }
+}
+
+

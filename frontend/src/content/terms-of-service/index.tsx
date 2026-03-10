@@ -25,12 +25,12 @@ function TermsOfService() {
   return (
     <Box>
       <Helmet>
-        <title>{t('terms_of_service')} - Atlas CMMS</title>
+        <title>{t('terms_of_service')} - EastWest BPO - MCI</title>
         <meta
           name="description"
-          content="Terms of Service for Atlas CMMS. Review the guidelines, responsibilities, and legal agreements for using our open-source CMMS software."
+          content="Terms of Service for EastWest BPO - MCI. Review the guidelines, responsibilities, and legal agreements for using our open-source CMMS software."
         />
-        <link rel="canonical" href="https://atlas-cmms.com/terms-of-service" />
+        <link rel="canonical" href="https://eastwest-bpo-mci.com/terms-of-service" />
       </Helmet>
       <NavBar />
       <Container maxWidth="lg" sx={{ mt: 8 }}>
@@ -322,7 +322,7 @@ function TermsOfService() {
             The Software includes certain open source components, which are
             subject to their respective open source licenses. A list of these
             components and their licenses is available at
-            https://github.com/Grashjs/cmms
+            https://github.com/Eastwestjs/cmms
           </Typography>
 
           <Typography variant="h4" sx={{ mt: 2, mb: 1, fontWeight: 'bold' }}>

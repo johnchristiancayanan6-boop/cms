@@ -13,7 +13,6 @@ import { Helmet } from 'react-helmet-async';
 import useAuth from 'src/hooks/useAuth';
 import JWTLogin from '../LoginJWT';
 import { useTranslation } from 'react-i18next';
-import Logo from 'src/components/LogoSign';
 
 const icons = {
   Auth0: '/static/images/logo/auth0.svg',
@@ -64,6 +63,8 @@ const TopWrapper = styled(Box)(
   display: flex;
   width: 100%;
   flex: 1;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
 `
 );
@@ -80,7 +81,6 @@ function LoginBasic() {
       <MainContent>
         <TopWrapper>
           <Container maxWidth="sm">
-            <Logo />
             <Card
               sx={{
                 mt: 3,
@@ -89,7 +89,17 @@ function LoginBasic() {
                 pb: 3
               }}
             >
-              <Box>
+              <Box sx={{ textAlign: 'center' }}>
+                <Typography
+                  variant="h3"
+                  sx={{
+                    mb: 3,
+                    color: '#5569ff',
+                    fontWeight: 'bold'
+                  }}
+                >
+                  EastWest BPO - MCI
+                </Typography>
                 <Typography
                   variant="h2"
                   sx={{

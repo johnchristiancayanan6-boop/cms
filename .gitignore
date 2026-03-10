@@ -3,6 +3,6 @@
 .genaiscript
 .DS_Store
 **/.DS_Store
-atlas_backups
+eastwest_backups
 docker-compose-dev.yml
 logo

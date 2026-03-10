@@ -1,0 +1,38 @@
+package com.eastwest.service;
+
+import com.eastwest.model.OwnUser;
+import com.eastwest.model.WorkOrderConfiguration;
+import com.eastwest.model.enums.RoleType;
+import com.eastwest.repository.WorkOrderConfigurationRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.Collection;
+import java.util.Optional;
+
+@Service
+@RequiredArgsConstructor
+public class WorkOrderConfigurationService {
+    private final WorkOrderConfigurationRepository workOrderConfigurationRepository;
+
+    public WorkOrderConfiguration create(WorkOrderConfiguration workOrderConfiguration) {
+        return workOrderConfigurationRepository.save(workOrderConfiguration);
+    }
+
+    public WorkOrderConfiguration update(WorkOrderConfiguration WorkOrderConfiguration) {
+        return workOrderConfigurationRepository.save(WorkOrderConfiguration);
+    }
+
+    public Collection<WorkOrderConfiguration> getAll() {
+        return workOrderConfigurationRepository.findAll();
+    }
+
+    public void delete(Long id) {
+        workOrderConfigurationRepository.deleteById(id);
+    }
+
+    public Optional<WorkOrderConfiguration> findById(Long id) {
+        return workOrderConfigurationRepository.findById(id);
+    }
+
+}

@@ -4,13 +4,18 @@ import { Helmet } from 'react-helmet-async';
 import JWTLogin from '../LoginJWT';
 
 import { useTranslation } from 'react-i18next';
-import Logo from 'src/components/LogoSign';
 
 const Content = styled(Box)(
   () => `
     display: flex;
     flex: 1;
     width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 18% 12%, rgba(28, 138, 216, 0.18) 0%, transparent 45%),
+      radial-gradient(circle at 82% 80%, rgba(255, 122, 0, 0.14) 0%, transparent 40%),
+      #eef3f9;
 `
 );
 
@@ -28,6 +33,7 @@ function LoginCover() {
           sx={{
             display: 'flex',
             alignItems: 'center',
+            justifyContent: 'center',
             flexDirection: 'column'
           }}
           maxWidth="sm"
@@ -35,11 +41,37 @@ function LoginCover() {
           <Card
             sx={{
               p: 4,
-              my: 4
+              my: 0,
+              width: '100%',
+              borderRadius: 3,
+              border: '1px solid rgba(16, 49, 92, 0.12)',
+              boxShadow: '0 22px 45px rgba(16, 40, 77, 0.12)'
             }}
           >
             <Box textAlign="center">
-              <Logo />
+              <Box
+                component="img"
+                src="/static/images/logo/logo.webp"
+                alt="EastWest BPO - MCI"
+                sx={{
+                  width: '100%',
+                  maxWidth: 76,
+                  height: 'auto',
+                  objectFit: 'contain',
+                  mx: 'auto',
+                  mb: 1.2
+                }}
+              />
+              <Typography
+                variant="h3"
+                sx={{
+                  fontWeight: 800,
+                  color: '#1459A6',
+                  mb: 1.2
+                }}
+              >
+                EastWest BPO - MCI (CMMS System)
+              </Typography>
               <Typography
                 variant="h2"
                 sx={{

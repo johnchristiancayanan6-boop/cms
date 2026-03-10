@@ -114,9 +114,9 @@ export function Footer() {
       items: [
         {
           icon: <Mail fontSize="small" />,
-          text: 'contact@atlas-cmms.com',
+          text: 'support@eastwest-bpo-mci.com',
           onClick: () =>
-            (window.location.href = 'mailto:contact@atlas-cmms.com')
+            (window.location.href = 'mailto:support@eastwest-bpo-mci.com')
         },
         {
           icon: <Phone fontSize="small" />,
@@ -160,7 +160,7 @@ export function Footer() {
           href: 'https://www.linkedin.com/company/91710999',
           icon: <LinkedIn />
         },
-        { href: 'https://github.com/Grashjs/cmms', icon: <GitHub /> }
+        { href: 'https://github.com/Eastwestjs/cmms', icon: <GitHub /> }
       ]
     },
     {
@@ -168,12 +168,12 @@ export function Footer() {
       type: 'apps',
       items: [
         {
-          href: 'https://play.google.com/store/apps/details?id=com.atlas.cmms',
+          href: 'https://play.google.com/store/apps/details?id=com.eastwest.bpomci',
           image: '/static/images/overview/playstore-badge.png',
           alt: 'playstore badge'
         },
         {
-          href: 'https://apps.apple.com/us/app/atlas-cmms/id6751547284',
+          href: 'https://apps.apple.com/us/app/id6751547284',
           image: '/static/images/overview/app_store_badge.svg.webp',
           alt: 'app store badge'
         }

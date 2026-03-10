@@ -42,14 +42,14 @@ const ldJson = [
   {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'Atlas CMMS',
+    name: 'EastWest BPO - MCI',
     description:
-      'Atlas CMMS is a free, open-source CMMS to manage work orders, preventive maintenance, assets, and facilities.',
+      'EastWest BPO - MCI is a free, open-source CMMS to manage work orders, preventive maintenance, assets, and facilities.',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
-    url: 'https://atlas-cmms.com/',
+    url: 'https://eastwest-bpo-mci.com/',
     screenshot:
-      'https://atlas-cmms.com/static/images/overview/work_orders_screenshot.png',
+      'https://eastwest-bpo-mci.com/static/images/overview/work_orders_screenshot.png',
     // aggregateRating: {
     //   '@type': 'AggregateRating',
     //   ratingValue: '4.5',
@@ -59,8 +59,8 @@ const ldJson = [
     // },
     publisher: {
       '@type': 'Organization',
-      name: 'Atlas CMMS',
-      url: 'https://atlas-cmms.com/'
+      name: 'EastWest BPO - MCI',
+      url: 'https://eastwest-bpo-mci.com/'
     },
     offers: {
       '@type': 'Offer',
@@ -71,10 +71,10 @@ const ldJson = [
   {
     '@context': 'https://schema.org',
     '@type': 'MobileApplication',
-    name: 'Atlas CMMS for iOS',
+    name: 'EastWest BPO - MCI for iOS',
     operatingSystem: 'iOS',
     applicationCategory: 'BusinessApplication',
-    downloadUrl: 'https://apps.apple.com/us/app/atlas-cmms/id6751547284',
+    downloadUrl: 'https://apps.apple.com/us/app/id6751547284',
     offers: {
       '@type': 'Offer',
       price: '0',
@@ -84,10 +84,10 @@ const ldJson = [
   {
     '@context': 'https://schema.org',
     '@type': 'MobileApplication',
-    name: 'Atlas CMMS for Android',
+    name: 'EastWest BPO - MCI for Android',
     operatingSystem: 'Android',
     applicationCategory: 'BusinessApplication',
-    downloadUrl: 'https://play.google.com/store/apps/details?id=com.atlas.cmms',
+    downloadUrl: 'https://play.google.com/store/apps/details?id=com.eastwest.bpomci',
     offers: {
       '@type': 'Offer',
       price: '0',
@@ -111,13 +111,13 @@ function Overview() {
         <title>{IS_ORIGINAL_CLOUD ? t('main.title') : brandConfig.name}</title>
         <meta
           name="description"
-          content="Atlas CMMS is a free, open-source CMMS to manage work orders, preventive maintenance, assets, and facilities. Streamline maintenance operations today."
+          content="EastWest BPO - MCI is a free, open-source CMMS to manage work orders, preventive maintenance, assets, and facilities. Streamline maintenance operations today."
         />
         <meta
           name="keywords"
-          content="CMMS, computerized maintenance management system, EAM, enterprise asset management, open source CMMS, free maintenance software, work order management, preventive maintenance, asset tracking, facility management, maintenance tracking software, equipment maintenance, Atlas CMMS"
+          content="CMMS, computerized maintenance management system, EAM, enterprise asset management, open source CMMS, free maintenance software, work order management, preventive maintenance, asset tracking, facility management, maintenance tracking software, equipment maintenance, EastWest BPO - MCI"
         />
-        <link rel="canonical" href="https://atlas-cmms.com/" />
+        <link rel="canonical" href="https://eastwest-bpo-mci.com/" />
         <link
           rel="preload"
           as="image"

@@ -16,7 +16,7 @@ const locale = {
   'home.built': 'تم تصميمه لتسهيل إدارة الصيانة',
   home_description:
     'عندما تكون السبورة البيضاء والملاحظات اللاصقة فوضوية، وتحتاج إلى برنامج CMMS سهل الاستخدام بما يكفي لفريقك - جرب {{shortBrandName}}',
-  try_grash: 'جرب أطلس',
+  try_eastwest: 'جرب أطلس',
   login: 'تسجيل الدخول',
   start_trial: 'ابدأ تجربة مجانية',
   'home.what': 'ماذا',
@@ -1003,7 +1003,7 @@ const locale = {
   your_payment_secure: 'بيانات الدفع الخاصة بك مشفرة وآمنة.',
   plan: 'يخطط',
   current_plan: 'الخطة الحالية',
-  number_users_who_will_use_grash:
+  number_users_who_will_use_eastwest:
     'عدد المستخدمين الذين سيستخدمون {{shortBrandName}}',
   admin_role: 'مسؤل',
   technical_role: 'اِصطِلاحِيّ',

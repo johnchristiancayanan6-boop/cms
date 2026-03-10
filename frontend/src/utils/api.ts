@@ -1,14 +1,35 @@
 import { apiUrl } from '../config';
 
 type Options = RequestInit & { raw?: boolean; headers?: HeadersInit };
+const parseResponseBody = async (response: Response) => {
+  const contentType = response.headers.get('content-type') || '';
+  if (contentType.includes('application/json')) {
+    return response.json();
+  }
+  const text = await response.text();
+  if (!text) return null;
+  try {
+    return JSON.parse(text);
+  } catch {
+    return { message: text };
+  }
+};
+
 function api<T>(url: string, options: Options): Promise<T> {
   return fetch(url, { headers: authHeader(false), ...options }).then(
     async (response) => {
       if (!response.ok) {
-        throw new Error(JSON.stringify(await response.json()));
+        const errorBody = await parseResponseBody(response);
+        throw new Error(
+          JSON.stringify(
+            errorBody || {
+              message: `Request failed with status ${response.status}`
+            }
+          )
+        );
       }
       if (options?.raw) return response as unknown as Promise<T>;
-      return response.json() as Promise<T>;
+      return (await parseResponseBody(response)) as T;
     }
   );
 }

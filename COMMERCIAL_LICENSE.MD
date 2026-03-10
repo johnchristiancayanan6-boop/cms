@@ -1,12 +1,12 @@
-# Atlas CMMS Commercial License Agreement
+# Eastwest CMMS Commercial License Agreement
 
 Effective Date: January 8, 2026
 
-This Atlas CMMS Commercial License Agreement (the "Agreement") is a legally binding contract between INTELLOOP LLC ("Licensor") and the individual or entity ("Licensee") who has purchased a license to use the Atlas CMMS software.
+This Eastwest CMMS Commercial License Agreement (the "Agreement") is a legally binding contract between INTELLOOP LLC ("Licensor") and the individual or entity ("Licensee") who has purchased a license to use the Eastwest CMMS software.
 
-This Agreement governs your use of the Atlas CMMS software (the "Software"), for self-hosted deployments on Licensee's own infrastructure. By installing, copying, or otherwise using the Software, you agree to be bound by the terms of this Agreement. If you do not agree to the terms of this Agreement, do not install or use the Software.
+This Agreement governs your use of the Eastwest CMMS software (the "Software"), for self-hosted deployments on Licensee's own infrastructure. By installing, copying, or otherwise using the Software, you agree to be bound by the terms of this Agreement. If you do not agree to the terms of this Agreement, do not install or use the Software.
 
-Cloud Subscription Notice: Use of Atlas CMMS via Licensor's cloud-hosted service (atlas-cmms.com) is governed by separate Terms of Service, not this Agreement.
+Cloud Subscription Notice: Use of Eastwest CMMS via Licensor's cloud-hosted service (eastwest-cmms.com) is governed by separate Terms of Service, not this Agreement.
 
 Background: Dual Licensing
 
@@ -17,7 +17,7 @@ The Software is offered under a dual-license model. You MUST choose ONE of the f
 
 1\. Definitions
 
-- "Software" refers to Atlas CMMS, including all source code, object code, documentation, and related materials provided by Licensor.
+- "Software" refers to Eastwest CMMS, including all source code, object code, documentation, and related materials provided by Licensor.
 - "Licensee" refers to the individual or legal entity that has purchased a license under this Agreement.
 - "Authorized User" means an employee, contractor, or agent of the Licensee who is authorized to access and use the Software on behalf of the Licensee.
 - "Order Form" means the ordering document or online order process for the purchase of the license, which specifies the license type, term, number of Authorized Users, and fees.
@@ -25,7 +25,7 @@ The Software is offered under a dual-license model. You MUST choose ONE of the f
 - "Production Use" means use of the Software in a live environment where it is accessed by Licensee's employees, customers, or end-users for actual business operations, as opposed to development, testing, or evaluation purposes.
 - "Deployment" means a single installation instance of the Software on Licensee's infrastructure, whether physical, virtual, or containerized.
 - "Third Party" means any person or entity other than Licensee and its Authorized Users.
-- "Enterprise Features" means the features and functionality designated as commercial or enterprise-only in Licensor's current Feature Matrix, available in the [pricing page](https://atlas-cmms.com/pricing?type=selfhosted) or as otherwise communicated by Licensor. The Feature Matrix may be updated by Licensor from time to time.
+- "Enterprise Features" means the features and functionality designated as commercial or enterprise-only in Licensor's current Feature Matrix, available in the [pricing page](https://eastwest-cmms.com/pricing?type=selfhosted) or as otherwise communicated by Licensor. The Feature Matrix may be updated by Licensor from time to time.
 
 2\. License Grant
 
@@ -44,8 +44,8 @@ Under this Commercial License, Licensee shall not:
 - 3.2. Public Repositories: Publicly distribute or publish the Software or modifications in a manner that would make it available under open-source terms.
 - 3.3. Remove Notices: Remove or alter any copyright, trademark, or other proprietary notices in the Software.
 - 3.4. Circumvent Licensing: Circumvent, reverse-engineer, or attempt to circumvent any license key or other copy-protection mechanism in the Software.
-- 3.5. Competitive Use: Use the Software to develop, market, or distribute a product or service that competes directly with Atlas CMMS or other products offered by Licensor.
-- 3.6. SaaS Use Rights: Commercial Licensees MAY use the Software to provide internal services to their own customers (e.g., a facilities management company using Atlas to manage client properties), provided that:
+- 3.5. Competitive Use: Use the Software to develop, market, or distribute a product or service that competes directly with Eastwest CMMS or other products offered by Licensor.
+- 3.6. SaaS Use Rights: Commercial Licensees MAY use the Software to provide internal services to their own customers (e.g., a facilities management company using Eastwest to manage client properties), provided that:
     - (a) The Software is not the primary product being sold or marketed;
     - (b) Access is limited to Licensee's direct customers under service contracts;
     - (c) The number of Authorized Users does not exceed the Order Form limits;
@@ -69,7 +69,7 @@ If included in the Order Form, Licensor will provide support and maintenance ser
 
 7\. Proprietary Information and Trade Secrets
 
-- 7.1. Acknowledgment of Public Availability: Licensee acknowledges that the source code of the Software is publicly available under the AGPLv3 license via the project's public repository at <https://github.com/Grashjs/cmms>.
+- 7.1. Acknowledgment of Public Availability: Licensee acknowledges that the source code of the Software is publicly available under the AGPLv3 license via the project's public repository at <https://github.com/Eastwestjs/cmms>.
 - 7.2. Non-Public Information: Notwithstanding Section 7.1, Licensor may provide Licensee with certain non-public information in connection with this Agreement, including but not limited to: license keys, activation mechanisms, private documentation, and advance access to unreleased features ("Non-Public Information").
 - 7.3. Confidentiality Obligations: Licensee agrees to maintain the confidentiality of the Non-Public Information and shall not disclose such information to Third Parties without Licensor's prior written consent.
 

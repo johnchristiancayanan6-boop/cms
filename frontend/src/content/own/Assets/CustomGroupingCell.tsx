@@ -4,7 +4,7 @@ import {
   GridRenderCellParams,
   useGridApiContext,
   useGridSelector
-} from '@mui/x-data-grid-pro';
+} from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import Button, { ButtonProps } from '@mui/material/Button';
 import { useTranslation } from 'react-i18next';
@@ -64,3 +64,4 @@ export default function CustomGridTreeDataGroupingCell(
     </Box>
   );
 }
+

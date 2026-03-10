@@ -56,7 +56,7 @@ import {
   SearchCriteria,
   SortDirection
 } from '../../../models/owns/page';
-import { useGridApiRef } from '@mui/x-data-grid-pro';
+import { useGridApiRef } from '@mui/x-data-grid';
 import useGridStatePersist from '../../../hooks/useGridStatePersist';
 import _ from 'lodash';
 import FilterAltTwoToneIcon from '@mui/icons-material/FilterAltTwoTone';
@@ -622,3 +622,4 @@ function Files() {
 }
 
 export default Files;
+

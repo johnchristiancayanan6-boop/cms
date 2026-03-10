@@ -49,7 +49,7 @@ import Currency from '../../../models/owns/currency';
 import { SearchCriteria, SortDirection } from '../../../models/owns/page';
 import { onSearchQueryChange } from '../../../utils/overall';
 import SearchInput from '../components/SearchInput';
-import { useGridApiRef } from '@mui/x-data-grid-pro';
+import { useGridApiRef } from '@mui/x-data-grid';
 import useGridStatePersist from '../../../hooks/useGridStatePersist';
 import { getErrorMessage } from '../../../utils/api';
 
@@ -673,3 +673,4 @@ const Customers = ({ openModal, handleCloseModal }: PropsType) => {
 };
 
 export default Customers;
+

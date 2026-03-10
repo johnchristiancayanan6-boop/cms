@@ -72,19 +72,19 @@ const healthcareData: IndustryLayoutProps = {
         'Hospitals rely on complex medical equipment and infrastructure that must remain operational and compliant. A CMMS centralizes maintenance scheduling, asset tracking, and documentation to ensure safety, reliability, and regulatory readiness.'
     },
     {
-      question: 'Can Atlas CMMS support healthcare compliance and audits?',
+      question: 'Can EastWest BPO - MCI support healthcare compliance and audits?',
       answer:
-        'Yes. Atlas CMMS stores inspection logs, maintenance history, and corrective actions, helping healthcare organizations prepare for internal reviews and external regulatory audits.'
+        'Yes. EastWest BPO - MCI stores inspection logs, maintenance history, and corrective actions, helping healthcare organizations prepare for internal reviews and external regulatory audits.'
     },
     {
-      question: 'Is Atlas CMMS secure for sensitive healthcare environments?',
+      question: 'Is EastWest BPO - MCI secure for sensitive healthcare environments?',
       answer:
-        'Atlas CMMS can be fully self-hosted on your own infrastructure, giving healthcare organizations complete control over security, privacy, and data governance.'
+        'EastWest BPO - MCI can be fully self-hosted on your own infrastructure, giving healthcare organizations complete control over security, privacy, and data governance.'
     },
     {
-      question: 'Does Atlas CMMS manage multiple hospitals or facilities?',
+      question: 'Does EastWest BPO - MCI manage multiple hospitals or facilities?',
       answer:
-        'Absolutely. Atlas CMMS supports multi-site asset tracking, centralized reporting, and standardized maintenance workflows across entire healthcare networks.'
+        'Absolutely. EastWest BPO - MCI supports multi-site asset tracking, centralized reporting, and standardized maintenance workflows across entire healthcare networks.'
     }
   ],
 

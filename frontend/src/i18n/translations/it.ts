@@ -15,7 +15,7 @@ const locale = {
   'home.built': 'Progettato per semplificare la gestione della manutenzione',
   home_description:
     'Quando lavagne e post-it creano caos e hai bisogno di un software CMMS abbastanza semplice da utilizzare per il tuo team, prova {{shortBrandName}}',
-  try_grash: 'Prova {{shortBrandName}}',
+  try_eastwest: 'Prova {{shortBrandName}}',
   login: 'Login',
   start_trial: 'Inizia una prova gratuita',
   'home.what': 'Che cosa',
@@ -1072,7 +1072,7 @@ const locale = {
   your_payment_secure: 'I tuoi dati di pagamento sono crittografati e sicuri.',
   plan: 'Piano',
   current_plan: 'Piano attuale',
-  number_users_who_will_use_grash:
+  number_users_who_will_use_eastwest:
     'Numero di utenti che utilizzeranno {{shortBrandName}}',
   admin_role: 'Amministratore',
   technical_role: 'Tecnico',

@@ -91,7 +91,7 @@ const IndustryLayout: FC<IndustryLayoutProps> = (props) => {
         <title>{pageTitle}</title>
         <link
           rel="canonical"
-          href={'https://atlas-cmms.com/' + canonicalPath}
+          href={'https://eastwest-bpo-mci.com/' + canonicalPath}
         />
       </Helmet>
       <NavBar />

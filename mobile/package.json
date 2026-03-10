@@ -1,5 +1,5 @@
 {
-  "name": "atlas",
+  "name": "eastwest",
   "version": "1.0.37",
   "scripts": {
     "start": "expo start --dev-client",

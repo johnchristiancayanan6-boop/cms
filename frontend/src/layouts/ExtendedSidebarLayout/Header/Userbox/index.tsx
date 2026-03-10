@@ -332,7 +332,7 @@ function HeaderUserbox() {
           </MenuItem>
           <MenuItem
             onClick={() => {
-              window.open('https://grashjs.github.io/user-guide');
+              window.open('https://eastwestjs.github.io/user-guide');
             }}
           >
             <ListItemIcon>

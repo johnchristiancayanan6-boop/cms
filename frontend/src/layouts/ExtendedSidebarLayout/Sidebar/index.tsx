@@ -5,23 +5,14 @@ import { SidebarContext } from 'src/contexts/SidebarContext';
 import {
   alpha,
   Box,
-  Button,
-  darken,
   Divider,
   Drawer,
-  lighten,
-  Link,
-  Stack,
   styled,
   Typography,
   useTheme
 } from '@mui/material';
 import SidebarMenu from './SidebarMenu';
 import SidebarFooter from './SidebarFooter';
-import Logo from 'src/components/LogoSign';
-import { isCloudVersion, isWhiteLabeled } from '../../../config';
-import useAuth from '../../../hooks/useAuth';
-import dayjs from 'dayjs';
 
 const SidebarWrapper = styled(Box)(
   ({ theme }) => `
@@ -32,7 +23,18 @@ const SidebarWrapper = styled(Box)(
         z-index: 7;
         height: 100%;
         padding-bottom: 61px;
+        overflow: hidden;
 `
+);
+
+const SidebarBrandLogo = styled('img')(
+  () => `
+    display: block;
+    width: 100%;
+    max-width: 190px;
+    height: auto;
+    object-fit: contain;
+  `
 );
 
 function Sidebar() {
@@ -52,9 +54,7 @@ function Sidebar() {
           left: 0,
           top: 0,
           background:
-            theme.palette.mode === 'dark'
-              ? alpha(lighten(theme.header.background, 0.1), 0.5)
-              : darken(theme.colors.alpha.black[100], 0.5),
+            'radial-gradient(circle at 15% 0%, rgba(52, 144, 223, 0.22) 0%, transparent 45%), linear-gradient(165deg, #0C2040 0%, #17355E 55%, #1D4A7B 100%)',
           boxShadow:
             theme.palette.mode === 'dark' ? theme.sidebar.boxShadow : 'none'
         }}
@@ -68,21 +68,25 @@ function Sidebar() {
                 flexDirection: 'row'
               }}
             >
-              <Box>
-                <Logo white />
-                {!isWhiteLabeled && (
-                  <Typography
-                    style={{ cursor: 'pointer', color: 'white' }}
-                    fontSize={13}
-                    onClick={() => {
-                      window.open('https://www.intel-loop.com/', '_blank');
-                    }}
-                  >
-                    Powered by Intelloop
-                  </Typography>
-                )}
+              <Box sx={{ px: 2, width: '100%', display: 'flex', justifyContent: 'center' }}>
+                <SidebarBrandLogo
+                  src="/static/images/logo/sidelogo.png"
+                  alt="EastWest BPO - MCI"
+                />
               </Box>
             </Box>
+            <Typography
+              variant="caption"
+              sx={{
+                mt: 0.5,
+                textAlign: 'center',
+                display: 'block',
+                color: alpha(theme.colors.alpha.trueWhite[100], 0.72),
+                letterSpacing: 1.2
+              }}
+            >
+              CMMS SYSTEM
+            </Typography>
           </Box>
           <Divider
             sx={{
@@ -113,9 +117,7 @@ function Sidebar() {
         <SidebarWrapper
           sx={{
             background:
-              theme.palette.mode === 'dark'
-                ? theme.colors.alpha.white[100]
-                : darken(theme.colors.alpha.black[100], 0.5)
+              'radial-gradient(circle at 15% 0%, rgba(52, 144, 223, 0.22) 0%, transparent 45%), linear-gradient(165deg, #0C2040 0%, #17355E 55%, #1D4A7B 100%)'
           }}
         >
           <Scrollbar>
@@ -127,21 +129,25 @@ function Sidebar() {
                   flexDirection: 'row'
                 }}
               >
-                <Box>
-                  <Logo white />
-                  {!isWhiteLabeled && (
-                    <Typography
-                      style={{ cursor: 'pointer', color: 'white' }}
-                      fontSize={13}
-                      onClick={() => {
-                        window.open('https://www.intel-loop.com/', '_blank');
-                      }}
-                    >
-                      Powered by Intelloop
-                    </Typography>
-                  )}
+                <Box sx={{ px: 2, width: '100%', display: 'flex', justifyContent: 'center' }}>
+                  <SidebarBrandLogo
+                    src="/static/images/logo/sidelogo.png"
+                    alt="EastWest BPO - MCI"
+                  />
                 </Box>
               </Box>
+              <Typography
+                variant="caption"
+                sx={{
+                  mt: 0.5,
+                  textAlign: 'center',
+                  display: 'block',
+                  color: alpha(theme.colors.alpha.trueWhite[100], 0.72),
+                  letterSpacing: 1.2
+                }}
+              >
+                CMMS SYSTEM
+              </Typography>
             </Box>
             <Divider
               sx={{

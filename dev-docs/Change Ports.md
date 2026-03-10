@@ -1,7 +1,7 @@
 
-# 🔧 Changing Ports in Atlas CMMS Docker Setup
+# 🔧 Changing Ports in Eastwest CMMS Docker Setup
 
-By default, the Atlas CMMS system uses the following ports:
+By default, the Eastwest CMMS system uses the following ports:
 
 | Service    | Default Port | Description               |
 |------------|--------------|---------------------------|

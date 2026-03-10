@@ -537,6 +537,7 @@ export const AuthProvider: FC<AuthProviderProps> = (props) => {
           }
         });
       } else {
+        setSession(null);
         dispatch({
           type: 'INITIALIZE',
           payload: {
@@ -549,6 +550,7 @@ export const AuthProvider: FC<AuthProviderProps> = (props) => {
       }
     } catch (err) {
       console.error(err);
+      setSession(null);
       dispatch({
         type: 'INITIALIZE',
         payload: {

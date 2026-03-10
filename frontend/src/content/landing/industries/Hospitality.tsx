@@ -2,7 +2,7 @@ import IndustryLayout, {
   IndustryLayoutProps
 } from 'src/layouts/IndustryLayout';
 
-const atlasHospitalityData: IndustryLayoutProps = {
+const hospitalityData: IndustryLayoutProps = {
   pageTitle: 'Open Source Hotel & Resort Maintenance Software',
   headerTitle: 'Host Your Own Guest-Centric Maintenance Platform',
   headerSubtitle:
@@ -39,20 +39,20 @@ const atlasHospitalityData: IndustryLayoutProps = {
       title: 'Anonymous Guest Reporting',
       description:
         'Deploy QR codes in guest rooms that link to a lightweight web portal. Guests can report issues without creating an account, keeping your response times fast and frictionless.',
-      imageUrl: 'https://atlas-cmms.com/assets/features/guest-portal.png'
+      imageUrl: 'https://eastwest-bpo-mci.com/assets/features/guest-portal.png'
     },
     {
       title: 'Preventive Housekeeping Cycles',
       description:
         'Schedule deep-cleaning rotations and mechanical inspections based on occupancy data. Ensure your high-traffic assets—from chillers to elevators—never fail during a full house.',
-      imageUrl: 'https://atlas-cmms.com/assets/features/pm-scheduling.png',
+      imageUrl: 'https://eastwest-bpo-mci.com/assets/features/pm-scheduling.png',
       learnMoreUrl: '/docs/preventive-maintenance'
     },
     {
       title: 'Unlimited Staff & Contractor Seats',
       description:
         'Stop paying per head. Add your entire housekeeping, engineering, and third-party vendor teams to the platform without increasing your monthly overhead.',
-      imageUrl: 'https://atlas-cmms.com/assets/features/unlimited-users.png'
+      imageUrl: 'https://eastwest-bpo-mci.com/assets/features/unlimited-users.png'
     }
   ],
 
@@ -62,12 +62,12 @@ const atlasHospitalityData: IndustryLayoutProps = {
     {
       question: 'Why choose open-source for hospitality?',
       answer:
-        'Privacy and cost. Most hotels are locked into expensive per-user contracts. Atlas CMMS gives you the freedom to scale across hundreds of rooms without scaling your software bill.'
+        'Privacy and cost. Most hotels are locked into expensive per-user contracts. EastWest BPO - MCI gives you the freedom to scale across hundreds of rooms without scaling your software bill.'
     },
     {
       question: 'Where is our data stored?',
       answer:
-        'Wherever you want. You can host Atlas on your own local servers or a private cloud, ensuring guest data is never processed by a third-party vendor.'
+        'Wherever you want. You can host EastWest BPO - MCI on your own local servers or a private cloud, ensuring guest data is never processed by a third-party vendor.'
     },
     {
       question: 'Can we customize the interface?',
@@ -81,8 +81,8 @@ const atlasHospitalityData: IndustryLayoutProps = {
     'Open-source hospitality maintenance built for the modern hotelier. Empower your guests, simplify room turnover, and slash licensing fees with a self-hosted, scalable CMMS.'
 };
 
-function HospitalityAtlasPage() {
-  return <IndustryLayout {...atlasHospitalityData}></IndustryLayout>;
+function HospitalityPage() {
+  return <IndustryLayout {...hospitalityData}></IndustryLayout>;
 }
 
-export default HospitalityAtlasPage;
+export default HospitalityPage;

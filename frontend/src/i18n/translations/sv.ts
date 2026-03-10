@@ -15,7 +15,7 @@ const locale = {
   'home.built': 'Byggd för att göra underhållshantering enklare',
   home_description:
     'När whiteboardtavlor och post-it-lappar är kaos, och du behöver en CMMS-programvara som är tillräckligt enkel för ditt team att faktiskt använda – prova {{shortBrandName}}',
-  try_grash: 'Prova {{shortBrandName}}',
+  try_eastwest: 'Prova {{shortBrandName}}',
   login: 'Logga in',
   start_trial: 'Starta en gratis provperiod',
   'home.what': 'Vad',
@@ -1052,7 +1052,7 @@ const locale = {
   your_payment_secure: 'Dina betalningsuppgifter är krypterade och säkra.',
   plan: 'Planera',
   current_plan: 'Nuvarande plan',
-  number_users_who_will_use_grash:
+  number_users_who_will_use_eastwest:
     'Antal användare som kommer att använda {{shortBrandName}}',
   admin_role: 'Administration',
   technical_role: 'Teknisk',

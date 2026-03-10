@@ -15,7 +15,7 @@ const deJSON = {
   'home.built': 'Entwickelt, um die Wartungsverwaltung zu erleichtern',
   home_description:
     'Wenn Whiteboards und Haftnotizen Chaos sind und Sie eine CMMS-Software benötigen, die einfach genug ist, damit Ihr Team sie tatsächlich nutzt - probieren Sie {{shortBrandName}}',
-  try_grash: 'Probieren Sie {{shortBrandName}}',
+  try_eastwest: 'Probieren Sie {{shortBrandName}}',
   login: 'Einloggen',
   start_trial: 'Kostenlose Testversion starten',
   'home.what': 'Was',
@@ -1115,7 +1115,7 @@ const deJSON = {
   your_payment_secure: 'Ihre Zahlungsdaten sind verschlüsselt und sicher.',
   plan: 'Plan',
   current_plan: 'Aktueller Plan',
-  number_users_who_will_use_grash:
+  number_users_who_will_use_eastwest:
     'Anzahl der Benutzer, die {{shortBrandName}} verwenden werden',
   admin_role: 'Admin',
   technical_role: 'Technisch',

@@ -15,7 +15,7 @@ const locale = {
   'home.built': 'Karbantartás-kezelés Egyszerűsítésére Építve',
   home_description:
     'Amikor a táblák és ragacsos jegyzetek káoszt okoznak, és szükséged van egy CMMS szoftverre, amely elég egyszerű ahhoz, hogy a csapatod ténylegesen használja - próbáld ki a {{shortBrandName}}-t',
-  try_grash: '{{shortBrandName}} Kipróbálása',
+  try_eastwest: '{{shortBrandName}} Kipróbálása',
   login: 'Bejelentkezés',
   start_trial: 'Ingyenes Próbaidőszak Indítása',
   'home.what': 'Mit',
@@ -874,7 +874,7 @@ const locale = {
   your_payment_secure: 'A fizetési adataid titkosítva és biztonságban vannak.',
   plan: 'Csomag',
   current_plan: 'Jelenlegi Csomag',
-  number_users_who_will_use_grash:
+  number_users_who_will_use_eastwest:
     'A {{shortBrandName}}-t használó felhasználók száma',
   admin_role: 'Admin',
   technical_role: 'Technikai',

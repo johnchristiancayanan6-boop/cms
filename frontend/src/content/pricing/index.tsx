@@ -117,21 +117,21 @@ function Pricing() {
   return (
     <PricingWrapper>
       <Helmet>
-        <title>Pricing - Atlas CMMS</title>
+        <title>Pricing - EastWest BPO - MCI</title>
         <meta
           name="description"
-          content="Flexible pricing plans for Atlas CMMS. Choose between Cloud and Self-Hosted versions of our open-source CMMS to optimize your maintenance operations."
+          content="Flexible pricing plans for EastWest BPO - MCI. Choose between Cloud and Self-Hosted versions of our open-source CMMS to optimize your maintenance operations."
         />
-        <link rel="canonical" href="https://atlas-cmms.com/pricing" />
+        <link rel="canonical" href="https://eastwest-bpo-mci.com/pricing" />
         <script type="application/ld+json">
           {`
             {
               "@context": "https://schema.org",
               "@type": "Product",
-              "name": "Atlas CMMS",
-              "description": "Flexible pricing plans for Atlas CMMS. Choose between Cloud and Self-Hosted versions of our open-source CMMS to optimize your maintenance operations.",
-              "url": "https://atlas-cmms.com/pricing",
-              "image": "https://atlas-cmms.com/static/images/logo/logo.png",
+              "name": "EastWest BPO - MCI",
+              "description": "Flexible pricing plans for EastWest BPO - MCI. Choose between Cloud and Self-Hosted versions of our open-source CMMS to optimize your maintenance operations.",
+              "url": "https://eastwest-bpo-mci.com/pricing",
+              "image": "https://eastwest-bpo-mci.com/static/images/logo/eastwest-logo.svg",
               "offers": [
                 {
                   "@type": "Offer",
@@ -164,7 +164,7 @@ function Pricing() {
               ],
               "publisher": {
                 "@type": "Organization",
-                "name": "Atlas CMMS"
+                "name": "EastWest BPO - MCI"
               }
             }
           `}

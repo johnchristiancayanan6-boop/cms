@@ -6,12 +6,12 @@ const googleServicesJson = process.env.GOOGLE_SERVICES_JSON;
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
-  name: 'Atlas CMMS',
-  slug: 'atlas-cmms',
+  name: 'Eastwest CMMS',
+  slug: 'eastwest-cmms',
   version: '1.0.37',
   orientation: 'portrait',
   icon: './assets/images/icon.png',
-  scheme: 'atlascmms',
+  scheme: 'eastwestcmms',
   userInterfaceStyle: 'automatic',
   newArchEnabled: false,
   notification: {
@@ -28,7 +28,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     assetPatternsToBeBundled: ['**/*']
   },
   ios: {
-    bundleIdentifier: 'com.cmms.atlas',
+    bundleIdentifier: 'com.cmms.eastwest',
     buildNumber: '9',
     jsEngine: 'hermes',
     supportsTablet: false,
@@ -43,7 +43,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       backgroundColor: '#ffffff'
     },
     versionCode: 31,
-    package: 'com.atlas.cmms',
+    package: 'com.eastwest.cmms',
     jsEngine: 'hermes',
     googleServicesFile:
       googleServicesJson ?? './android/app/google-services.json',
@@ -65,7 +65,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     [
       'expo-camera',
       {
-        cameraPermission: 'Allow Atlas to access camera.'
+        cameraPermission: 'Allow Eastwest to access camera.'
       }
     ],
     [

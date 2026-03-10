@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {
-  DataGridProProps,
+  DataGridProps,
   getDataGridUtilityClass,
   GridRenderCellParams,
   useGridApiContext,
   useGridRootProps
-} from '@mui/x-data-grid-pro';
+} from '@mui/x-data-grid';
 import { unstable_composeClasses as composeClasses } from '@mui/material';
 import Box from '@mui/material/Box';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
@@ -17,7 +17,7 @@ const isNavigationKey = (key: string) =>
   key.indexOf('Page') === 0 ||
   key === ' ';
 const useUtilityClasses = (ownerState: {
-  classes: DataGridProProps['classes'];
+  classes: DataGridProps['classes'];
 }) => {
   const { classes } = ownerState;
 
@@ -79,3 +79,6 @@ export function GroupingCellWithLazyLoading(
     </Box>
   );
 }
+
+
+

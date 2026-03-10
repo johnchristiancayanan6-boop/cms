@@ -15,7 +15,7 @@ const plJSON = {
   'home.built': 'Stworzony, aby ułatwić zarządzanie konserwacją',
   home_description:
     'Gdy tablice i karteczki samoprzylepne są chaosem, a potrzebujesz oprogramowania CMMS, które jest wystarczająco proste, aby twój zespół mógł z niego korzystać – wypróbuj {{shortBrandName}}',
-  try_grash: 'Wypróbuj {{shortBrandName}}',
+  try_eastwest: 'Wypróbuj {{shortBrandName}}',
   login: 'Zaloguj się',
   start_trial: 'Rozpocznij darmowy okres próbny',
   'home.what': 'Co',
@@ -1078,7 +1078,7 @@ const plJSON = {
   your_payment_secure: 'Twoje dane płatnicze są szyfrowane i bezpieczne.',
   plan: 'Plan',
   current_plan: 'Obecny plan',
-  number_users_who_will_use_grash:
+  number_users_who_will_use_eastwest:
     'Liczba użytkowników korzystających z {{shortBrandName}}',
   admin_role: 'Administrator',
   technical_role: 'Techniczny',

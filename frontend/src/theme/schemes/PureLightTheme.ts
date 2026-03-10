@@ -4,28 +4,28 @@ import { customColors } from '../../config';
 import i18n from 'src/i18n/i18n';
 
 const themeColors = {
-  primary: '#5569ff',
-  secondary: '#6E759F',
-  success: '#57CA22',
-  warning: '#FFA319',
-  error: '#FF1943',
-  info: '#33C2FF',
-  black: '#223354',
-  white: '#ffffff',
-  primaryAlt: '#000C57',
+  primary: '#1E40AF',
+  secondary: '#0EA5E9',
+  success: '#16A34A',
+  warning: '#F59E0B',
+  error: '#DC2626',
+  info: '#38BDF8',
+  black: '#0F172A',
+  white: '#F8FAFC',
+  primaryAlt: '#1E3A8A',
   ...customColors
 };
 
 const colors = {
   gradients: {
-    blue1: 'linear-gradient(135deg, #6B73FF 0%, #000DFF 100%)',
-    blue2: 'linear-gradient(135deg, #ABDCFF 0%, #0396FF 100%)',
-    blue3: 'linear-gradient(127.55deg, #141E30 3.73%, #243B55 92.26%)',
-    blue4: 'linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)',
-    blue5: 'linear-gradient(135deg, #97ABFF 10%, #123597 100%)',
-    orange1: 'linear-gradient(135deg, #FCCF31 0%, #F55555 100%)',
-    orange2: 'linear-gradient(135deg, #FFD3A5 0%, #FD6585 100%)',
-    orange3: 'linear-gradient(120deg, #f6d365 0%, #fda085 100%)',
+    blue1: 'linear-gradient(135deg, #1E40AF 0%, #0EA5E9 100%)',
+    blue2: 'linear-gradient(135deg, #BFDBFE 0%, #38BDF8 100%)',
+    blue3: 'linear-gradient(132deg, #0F172A 4%, #1E3A8A 60%, #0EA5E9 100%)',
+    blue4: 'linear-gradient(135deg, #1E3A8A 0%, #0F172A 100%)',
+    blue5: 'linear-gradient(135deg, #60A5FA 10%, #1E40AF 100%)',
+    orange1: 'linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%)',
+    orange2: 'linear-gradient(135deg, #FDE68A 0%, #FBBF24 100%)',
+    orange3: 'linear-gradient(120deg, #FEF3C7 0%, #F59E0B 100%)',
     purple1: 'linear-gradient(135deg, #43CBFF 0%, #9708CC 100%)',
     purple3: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     pink1: 'linear-gradient(135deg, #F6CEEC 0%, #D939CD 100%)',
@@ -53,19 +53,19 @@ const colors = {
   },
   layout: {
     general: {
-      bodyBg: '#f2f5f9'
+      bodyBg: '#E2E8F0'
     },
     sidebar: {
-      background: themeColors.white,
-      textColor: themeColors.secondary,
-      dividerBg: '#f2f5f9',
-      menuItemColor: '#242E6F',
+      background: '#0F172A',
+      textColor: '#BFDBFE',
+      dividerBg: alpha(themeColors.white, 0.14),
+      menuItemColor: '#DBEAFE',
       menuItemColorActive: themeColors.primary,
-      menuItemBg: themeColors.white,
-      menuItemBgActive: '#f2f5f9',
-      menuItemIconColor: lighten(themeColors.secondary, 0.3),
-      menuItemIconColorActive: themeColors.primary,
-      menuItemHeadingColor: darken(themeColors.secondary, 0.3)
+      menuItemBg: 'transparent',
+      menuItemBgActive: alpha(themeColors.white, 0.12),
+      menuItemIconColor: '#93C5FD',
+      menuItemIconColorActive: themeColors.secondary,
+      menuItemHeadingColor: '#93C5FD'
     }
   },
   alpha: {
@@ -247,9 +247,9 @@ export const PureLightTheme = createTheme({
   },
   header: {
     height: '80px',
-    background: colors.alpha.white[100],
-    boxShadow: colors.shadows.cardSm,
-    textColor: colors.secondary.main
+    background: '#F8FBFF',
+    boxShadow: '0 8px 30px rgba(16, 40, 77, 0.08)',
+    textColor: '#133158'
   },
   spacing: 9,
   palette: {
@@ -330,11 +330,11 @@ export const PureLightTheme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: alpha(darken(themeColors.primaryAlt, 0.4), 0.2),
-          backdropFilter: 'blur(2px)',
+          backdropFilter: 'none',
 
           '&.MuiBackdrop-invisible': {
             backgroundColor: 'transparent',
-            backdropFilter: 'blur(2px)'
+            backdropFilter: 'none'
           }
         }
       }
@@ -592,7 +592,8 @@ export const PureLightTheme = createTheme({
     },
     MuiButton: {
       defaultProps: {
-        disableRipple: true
+        disableRipple: true,
+        disableElevation: true
       },
       styleOverrides: {
         root: {
@@ -1169,7 +1170,7 @@ export const PureLightTheme = createTheme({
   },
   typography: {
     fontFamily:
-      '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
+      '"Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
     h1: {
       fontWeight: 700,
       fontSize: 35

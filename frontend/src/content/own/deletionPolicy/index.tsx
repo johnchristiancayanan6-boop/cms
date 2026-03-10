@@ -31,13 +31,13 @@ function DeletionPolicy() {
     <Box>
       <Helmet>
         <title>
-          {t('account_deletion', { brandName: brandConfig.name })} - Atlas CMMS
+          {t('account_deletion', { brandName: brandConfig.name })} - EastWest BPO - MCI
         </title>
         <meta
           name="description"
-          content="Information on how to delete your account in Atlas CMMS. We provide clear steps for data removal and account closure."
+          content="Information on how to delete your account in EastWest BPO - MCI. We provide clear steps for data removal and account closure."
         />
-        <link rel="canonical" href="https://atlas-cmms.com/deletion-policy" />
+        <link rel="canonical" href="https://eastwest-bpo-mci.com/deletion-policy" />
       </Helmet>
       <HeaderWrapper>
         <Container maxWidth="lg">

@@ -16,7 +16,7 @@ const locale = {
   'home.built': 'Built to Make Managing Maintenance Easier',
   home_description:
     "When whiteboards and sticky notes are chaos, and you need a CMMS software that's easy enough for your team to actually use - try {{shortBrandName}}",
-  try_grash: 'Try {{shortBrandName}}',
+  try_eastwest: 'Try {{shortBrandName}}',
   login: 'Log In',
   start_trial: 'Start a Free trial',
   'home.what': 'What',
@@ -1026,7 +1026,7 @@ const locale = {
   your_payment_secure: 'Your payment data is encrypted and secure.',
   plan: 'Plan',
   current_plan: 'Current Plan',
-  number_users_who_will_use_grash:
+  number_users_who_will_use_eastwest:
     'Number of users who will use {{shortBrandName}}',
   admin_role: 'Admin',
   technical_role: 'Technical',

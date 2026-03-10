@@ -15,13 +15,13 @@ global.React = require('react');
 // Mock browser globals for Node.js environment
 global.window = {
   __RUNTIME_CONFIG__: {
-    BASE_URL: 'https://atlas-cmms.com'
+    BASE_URL: 'https://eastwest-cmms.com'
   },
   location: {
-    href: 'https://atlas-cmms.com',
+    href: 'https://eastwest-cmms.com',
     protocol: 'https:',
-    host: 'atlas-cmms.com',
-    hostname: 'atlas-cmms.com',
+    host: 'eastwest-cmms.com',
+    hostname: 'eastwest-cmms.com',
     port: '',
     pathname: '/',
     search: '',
@@ -146,7 +146,7 @@ console.log(
 );
 
 new Sitemap(uniqueRoutes)
-  .build('https://atlas-cmms.com')
+  .build('https://eastwest-cmms.com')
   .save('./public/sitemap.xml');
 
 console.log('Sitemap generated successfully!');

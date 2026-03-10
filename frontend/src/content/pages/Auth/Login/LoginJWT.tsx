@@ -20,6 +20,7 @@ import { useTranslation } from 'react-i18next';
 import { CustomSnackBarContext } from '../../../../contexts/CustomSnackBarContext';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { apiUrl, isSSOEnabled, oauth2Provider } from '../../../../config';
+import { getErrorMessage } from '../../../../utils/api';
 
 const LoginJWT: FC = () => {
   const { login } = useAuth() as any;
@@ -50,7 +51,7 @@ const LoginJWT: FC = () => {
         setSubmitting(true);
         return login(values.email, values.password)
           .catch((err) => {
-            showSnackBar(t('wrong_credentials'), 'error');
+            showSnackBar(getErrorMessage(err, t('wrong_credentials')), 'error');
             setStatus({ success: false });
           })
           .finally(() => {

@@ -58,7 +58,7 @@ import Map from '../components/Map';
 import { formatSelect, formatSelectMultiple } from '../../../utils/formatters';
 import { CustomSnackBarContext } from 'src/contexts/CustomSnackBarContext';
 import { CompanySettingsContext } from '../../../contexts/CompanySettingsContext';
-import { DataGridProProps, useGridApiRef } from '@mui/x-data-grid-pro';
+import { DataGridProps, useGridApiRef } from '@mui/x-data-grid';
 import { GroupingCellWithLazyLoading } from '../Assets/GroupingCellWithLazyLoading';
 import { AssetRow } from '../../../models/owns/asset';
 import useAuth from '../../../hooks/useAuth';
@@ -516,24 +516,30 @@ function Locations() {
       </DialogContent>
     </Dialog>
   );
-  const groupingColDef: DataGridProProps['groupingColDef'] = {
+  const groupingColDef: any = {
     headerName: t('hierarchy'),
     disableReorder: true,
     renderCell: (params) => <GroupingCellWithLazyLoading {...params} />,
     flex: 0.5
   };
   const CustomRow = (props: React.ComponentProps<typeof GridRow>) => {
-    const rowNode = apiRef.current.getRowNode(props.rowId);
+    const row =
+      (typeof apiRef.current?.getRow === 'function'
+        ? apiRef.current.getRow(props.rowId)
+        : (props as any).row ?? (props as any).model) as
+      | { hierarchy?: unknown[] }
+      | null;
+    const depth = Math.max((row?.hierarchy?.length ?? 1) - 1, 0);
     const theme = useTheme();
 
     return (
       <GridRow
         {...props}
         style={
-          (rowNode?.depth ?? 0) > 0
+          depth > 0
             ? {
                 backgroundColor:
-                  rowNode.depth % 2 === 0
+                  depth % 2 === 0
                     ? theme.colors.primary.light
                     : theme.colors.primary.main,
                 color: 'white'

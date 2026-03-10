@@ -48,7 +48,7 @@ import {
 import Form from '../components/form';
 import * as Yup from 'yup';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { DataGridProProps, useGridApiRef } from '@mui/x-data-grid-pro';
+import { DataGridProps, useGridApiRef } from '@mui/x-data-grid';
 import { formatAssetValues } from '../../../utils/formatters';
 import { GroupingCellWithLazyLoading } from './GroupingCellWithLazyLoading';
 import { UserMiniDTO } from '../../../models/user';
@@ -744,23 +744,29 @@ function Assets() {
     </Dialog>
   );
 
-  const groupingColDef: DataGridProProps['groupingColDef'] = {
+  const groupingColDef: any = {
     headerName: t('hierarchy'),
     disableReorder: true,
     renderCell: (params) => <GroupingCellWithLazyLoading {...params} />
   };
   const CustomRow = (props: React.ComponentProps<typeof GridRow>) => {
-    const rowNode = apiRef.current.getRowNode(props.rowId);
+    const row =
+      (typeof apiRef.current?.getRow === 'function'
+        ? apiRef.current.getRow(props.rowId)
+        : (props as any).row ?? (props as any).model) as
+      | { hierarchy?: unknown[] }
+      | null;
+    const depth = Math.max((row?.hierarchy?.length ?? 1) - 1, 0);
     const theme = useTheme();
 
     return (
       <GridRow
         {...props}
         style={
-          (rowNode?.depth ?? 0) > 0
+          depth > 0
             ? {
                 backgroundColor:
-                  rowNode.depth % 2 === 0
+                  depth % 2 === 0
                     ? theme.colors.primary.light
                     : theme.colors.primary.main,
                 color: 'white'

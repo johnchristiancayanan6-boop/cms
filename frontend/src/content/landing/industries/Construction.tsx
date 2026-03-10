@@ -39,21 +39,21 @@ const constructionData: IndustryLayoutProps = {
       title: 'Rugged Asset Tracking',
       description:
         'Manage everything from excavators to power tools. Use the open API to integrate with GPS telematics and track engine hours automatically for more accurate PM scheduling.',
-      imageUrl: 'https://atlas-cmms.com/assets/features/heavy-equipment.png',
+      imageUrl: 'https://eastwest-bpo-mci.com/assets/features/heavy-equipment.png',
       learnMoreUrl: '/features/assets'
     },
     {
       title: 'Offline-First Field Work Orders',
       description:
         'Construction sites don’t always have Wi-Fi. Our mobile-ready portal allows technicians to log repairs and safety inspections offline, syncing as soon as they reach a signal.',
-      imageUrl: 'https://atlas-cmms.com/assets/features/offline-mode.png',
+      imageUrl: 'https://eastwest-bpo-mci.com/assets/features/offline-mode.png',
       learnMoreUrl: '/features/work-orders'
     },
     {
       title: 'Multi-Site Project Sync',
       description:
         'Organize your fleet by project code or geographic region. Move assets between job sites and maintain a continuous service history that stays with the machine, not the vendor.',
-      imageUrl: 'https://atlas-cmms.com/assets/features/project-sync.png'
+      imageUrl: 'https://eastwest-bpo-mci.com/assets/features/project-sync.png'
     }
   ],
 
@@ -61,9 +61,9 @@ const constructionData: IndustryLayoutProps = {
 
   faqs: [
     {
-      question: 'How does Atlas handle engine hour tracking?',
+      question: 'How does EastWest BPO - MCI handle engine hour tracking?',
       answer:
-        'Atlas CMMS allows for manual meter reading updates via mobile or automated ingestion via our open REST API, making it easy to trigger maintenance based on actual machine usage.'
+        'EastWest BPO - MCI allows for manual meter reading updates via mobile or automated ingestion via our open REST API, making it easy to trigger maintenance based on actual machine usage.'
     },
     {
       question: 'Is it really free for unlimited users?',
@@ -82,8 +82,8 @@ const constructionData: IndustryLayoutProps = {
     'Open-source CMMS for construction that keeps your heavy iron moving. Track assets across job sites, manage field work orders offline, and own your maintenance data.'
 };
 
-function ConstructionAtlasPage() {
+function ConstructionPage() {
   return <IndustryLayout {...constructionData}></IndustryLayout>;
 }
 
-export default ConstructionAtlasPage;
+export default ConstructionPage;

@@ -64,7 +64,7 @@ import { SearchCriteria } from '../../../../../models/owns/page';
 import SockJS from 'sockjs-client';
 import { apiUrl } from 'src/config';
 import useAuth from 'src/hooks/useAuth';
-import { Stomp } from '@stomp/stompjs';
+import { Client } from '@stomp/stompjs';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 const BoxComposed = styled(Box)(
@@ -141,40 +141,45 @@ function HeaderNotifications() {
     direction: 'DESC'
   };
   const [criteria, setCriteria] = useState<SearchCriteria>(initialCriteria);
-  const [stompClient, setStompClient] = useState(null);
+  const stompClientRef = useRef<Client | null>(null);
   const { user } = useAuth();
   useEffect(() => {
     dispatch(getNotifications(criteria));
   }, []);
   useEffect(() => {
-    const disconnect = () => {
-      if (stompClient) {
-        stompClient.disconnect();
-        setStompClient(null);
+    if (!user?.id) {
+      if (stompClientRef.current) {
+        stompClientRef.current.deactivate();
+        stompClientRef.current = null;
+      }
+      return;
+    }
+
+    const client = new Client({
+      webSocketFactory: () => new SockJS(`${apiUrl}ws`) as any,
+      reconnectDelay: 5000,
+      connectHeaders: {
+        token: localStorage.getItem('accessToken') || ''
+      }
+    });
+
+    client.onConnect = () => {
+      client.subscribe(`/notifications/${user.id}`, (message) => {
+        const notification: Notification = JSON.parse(message.body);
+        dispatch(newReceivedNotification(notification));
+      });
+    };
+
+    client.activate();
+    stompClientRef.current = client;
+
+    return () => {
+      client.deactivate();
+      if (stompClientRef.current === client) {
+        stompClientRef.current = null;
       }
     };
-    if (user) {
-      if (!stompClient) {
-        const socket = new SockJS(`${apiUrl}ws`);
-        const client = Stomp.over(socket);
-        client.connect({ token: localStorage.getItem('accessToken') }, function(frame) {
-          const subscription = client.subscribe(
-            `/notifications/${user.id}`,
-            function(message) {
-              const notification: Notification = JSON.parse(message.body);
-              dispatch(
-                newReceivedNotification(notification)
-              );
-            }
-          );
-          setStompClient(client);
-        });
-      }
-    } else {
-      disconnect();
-    }
-    return disconnect;
-  }, [user?.id, stompClient]);
+  }, [dispatch, user?.id]);
   const handleOpen = (): void => {
     setOpen(true);
   };

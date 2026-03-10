@@ -1,0 +1,126 @@
+name: eastwest-bpo-mci
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: eastwest_db
+    environment:
+      POSTGRES_DB: atlas
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-mypassword}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: eastwest-backend
+    depends_on:
+      - postgres
+      - minio
+    volumes:
+      - ./logo:/app/static/images
+      - ./api/src:/app/src
+    environment:
+      DB_URL: postgres/atlas
+      DB_USER: ${POSTGRES_USER}
+      DB_PWD: ${POSTGRES_PASSWORD:-mypassword}
+      PUBLIC_API_URL: ${PUBLIC_API_URL:-http://localhost:8080}
+      FASTSPRING_PWD: ${FASTSPRING_PWD}
+      FASTSPRING_USER: ${FASTSPRING_USER}
+      PUBLIC_FRONT_URL: ${PUBLIC_FRONT_URL}
+      GCP_BUCKET_NAME: ${GCP_BUCKET_NAME}
+      GCP_JSON: ${GCP_JSON}
+      GCP_PROJECT_ID: ${GCP_PROJECT_ID}
+      MAIL_RECIPIENTS: ${MAIL_RECIPIENTS}
+      SMTP_PWD: ${SMTP_PWD}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT}
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+      MINIO_ENDPOINT: http://minio:9000
+      MINIO_BUCKET: atlas-bucket
+      MINIO_ACCESS_KEY: ${MINIO_USER}
+      MINIO_SECRET_KEY: ${MINIO_PASSWORD}
+      STORAGE_TYPE: ${STORAGE_TYPE:-minio}
+      PUBLIC_MINIO_ENDPOINT: ${PUBLIC_MINIO_ENDPOINT:-http://localhost:9000}
+      INVITATION_VIA_EMAIL: ${INVITATION_VIA_EMAIL:-false}
+      ENABLE_EMAIL_NOTIFICATIONS: ${ENABLE_EMAIL_NOTIFICATIONS:-false}
+      ENABLE_SSO: ${ENABLE_SSO:-false}
+      OAUTH2_PROVIDER: ${OAUTH2_PROVIDER}
+      OAUTH2_CLIENT_ID: ${OAUTH2_CLIENT_ID}
+      OAUTH2_CLIENT_SECRET: ${OAUTH2_CLIENT_SECRET}
+      LICENSE_KEY: ${LICENSE_KEY:-}
+      LICENSE_ENFORCEMENT: ${LICENSE_ENFORCEMENT:-false}
+      LICENSE_FINGERPRINT_REQUIRED: ${LICENSE_FINGERPRINT_REQUIRED:-true}
+      ALLOWED_ORGANIZATION_ADMINS: ${ALLOWED_ORGANIZATION_ADMINS:-}
+      LOGO_PATHS: ${LOGO_PATHS}
+      CUSTOM_COLORS: ${CUSTOM_COLORS}
+      BRAND_CONFIG: ${BRAND_CONFIG}
+      PADDLE_API_KEY: ${PADDLE_API_KEY:-}
+      PADDLE_WEBHOOK_SECRET_KEY: ${PADDLE_WEBHOOK_SECRET_KEY:-}
+      PADDLE_ENVIRONMENT: ${PADDLE_ENVIRONMENT:-sandbox}
+      ENABLE_CORS: ${ENABLE_CORS:-true}
+      KEYGEN_PRODUCT_TOKEN: ${KEYGEN_PRODUCT_TOKEN:-}
+      MAIL_TYPE: ${MAIL_TYPE:-smtp}
+      SENDGRID_API_KEY: ${SENDGRID_API_KEY:-}
+      SENDGRID_FROM_EMAIL: ${SENDGRID_FROM_EMAIL:-}
+      SENDGRID_CONTACT_LIST_ID: ${SENDGRID_CONTACT_LIST_ID:-}
+    ports:
+      - "8080:8080"
+  
+  frontend:
+    image: node:21.6.1
+    container_name: eastwest-frontend-dev
+    working_dir: /app
+    command: sh -c "npm install --legacy-peer-deps && npm start"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      REACT_APP_API_URL: ${PUBLIC_API_URL}
+      REACT_APP_GOOGLE_KEY: ${GOOGLE_KEY}
+      REACT_APP_GOOGLE_TRACKING_ID: ${GOOGLE_TRACKING_ID}
+      REACT_APP_MUI_X_LICENSE: ${MUI_X_LICENSE}
+      REACT_APP_INVITATION_VIA_EMAIL: ${INVITATION_VIA_EMAIL:-false}
+      REACT_APP_CLOUD_VERSION: ${CLOUD_VERSION:-false}
+      REACT_APP_ENABLE_SSO: ${ENABLE_SSO:-false}
+      REACT_APP_OAUTH2_PROVIDER: ${OAUTH2_PROVIDER}
+      REACT_APP_LOGO_PATHS: ${LOGO_PATHS}
+      REACT_APP_CUSTOM_COLORS: ${CUSTOM_COLORS}
+      REACT_APP_BRAND_CONFIG: ${BRAND_CONFIG}
+      REACT_APP_DEMO_LINK: ${DEMO_LINK}
+      REACT_APP_PADDLE_SECRET_TOKEN: ${PADDLE_SECRET_TOKEN}
+      REACT_APP_PADDLE_ENVIRONMENT: ${PADDLE_ENVIRONMENT:-sandbox}
+      CHOKIDAR_USEPOLLING: "true"
+      WDS_SOCKET_PORT: 0
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    stdin_open: true
+    tty: true
+  
+  minio:
+    image: minio/minio:RELEASE.2025-04-22T22-12-26Z
+    container_name: eastwest_minio
+    environment:
+      MINIO_ROOT_USER: ${MINIO_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD}
+    volumes:
+      - minio_data:/data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    command: server --address ":9000" --console-address ":9001" /data
+
+volumes:
+  postgres_data:
+    external: true
+    name: eastwest-bpo-mci_postgres_data
+  minio_data:
+    external: true
+    name: eastwest-bpo-mci_minio_data

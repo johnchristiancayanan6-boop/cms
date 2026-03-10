@@ -15,7 +15,7 @@ const locale = {
   'home.built': '为简化维护管理而构建',
   home_description:
     '当白板和便利贴变成混乱，而您需要一个足够简单让团队真正使用的CMMS软件时 - 试试{{shortBrandName}}',
-  try_grash: '试用{{shortBrandName}}',
+  try_eastwest: '试用{{shortBrandName}}',
   login: '登录',
   start_trial: '开始免费试用',
   'home.what': '什么',
@@ -778,7 +778,7 @@ const locale = {
   your_payment_secure: '您的付款数据已加密且安全。',
   plan: '计划',
   current_plan: '当前计划',
-  number_users_who_will_use_grash: '将使用{{shortBrandName}}的用户数量',
+  number_users_who_will_use_eastwest: '将使用{{shortBrandName}}的用户数量',
   admin_role: '管理员',
   technical_role: '技术',
   limited_technical_role: '有限技术',

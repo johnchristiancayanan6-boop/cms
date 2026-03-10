@@ -744,7 +744,7 @@ export const getVendorFields = (t): IField[] => {
       name: 'companyName',
       type: 'text',
       label: t('company_name'),
-      placeholder: 'Atlas',
+      placeholder: 'Eastwest',
       required: true
     },
     {

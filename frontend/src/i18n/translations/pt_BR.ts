@@ -15,7 +15,7 @@ const ptBRJSON = {
   'home.built': 'Construído para Facilitar a Gestão de Manutenção',
   home_description:
     'Quando quadros brancos e notas adesivas são caóticos, e você precisa de um software CMMS fácil o suficiente para sua equipe realmente usar - experimente o {{shortBrandName}}',
-  try_grash: 'Experimente o {{shortBrandName}}',
+  try_eastwest: 'Experimente o {{shortBrandName}}',
   login: 'Entrar',
   start_trial: 'Iniciar um teste gratuito',
   'home.what': 'O que',
@@ -1098,7 +1098,7 @@ const ptBRJSON = {
   your_payment_secure: 'Seus dados de pagamento são criptografados e seguros.',
   plan: 'Plano',
   current_plan: 'Plano Atual',
-  number_users_who_will_use_grash:
+  number_users_who_will_use_eastwest:
     'Número de usuários que usarão o {{shortBrandName}}',
   admin_role: 'Admin',
   technical_role: 'Técnico',

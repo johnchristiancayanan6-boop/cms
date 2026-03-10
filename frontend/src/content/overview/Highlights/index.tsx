@@ -830,7 +830,7 @@ function Highlights({ hidePricing }: { hidePricing?: boolean }) {
             <Box sx={{ display: 'flex', justifyContent: 'center', mb: 1 }}>
               <Link
                 href={
-                  'https://github.com/Grashjs/cmms?tab=readme-ov-file#self-host--run-locally'
+                  'https://github.com/Eastwestjs/cmms?tab=readme-ov-file#self-host--run-locally'
                 }
               >
                 {t('installation_docs')}
