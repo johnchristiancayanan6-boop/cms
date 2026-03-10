@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Auto Push to GitHub",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/scripts/auto-push-watch.ps1",
+        "-RepoPath",
+        "${workspaceFolder}",
+        "-Branch",
+        "main",
+        "-Remote",
+        "origin",
+        "-PollSeconds",
+        "15"
+      ],
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ]
+}
